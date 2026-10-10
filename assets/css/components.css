@@ -1,0 +1,123 @@
+/* Component styles. Colours, radii, spacing and line weights come from tokens.css. */
+*, *::before, *::after { box-sizing: border-box; }
+.sd-root { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 1.5; font-weight: 400; -webkit-font-smoothing: antialiased; }
+.sd-root :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.sd-on-crimson :focus-visible { outline-color: var(--cream); }
+
+/* ---- SplitHeading: one word, part solid, part outlined ---- */
+.sd-split { --sd-c: var(--crimson); color: var(--sd-c); font-family: var(--font-display); font-weight: 800; text-transform: uppercase; line-height: .98; letter-spacing: -.01em; margin: 0; font-size: clamp(30px, 4vw, 44px); }
+.sd-split .s { color: var(--sd-c); }
+.sd-split .o { color: transparent; -webkit-text-stroke: var(--outline-stroke) var(--sd-c); }
+.sd-split--case { text-transform: none; }
+.sd-split--xl { font-size: clamp(64px, 10vw, 120px); line-height: .95; }
+.sd-split--xl .o { -webkit-text-stroke-width: 2.5px; }
+.sd-split--lg { font-size: clamp(40px, 6.2vw, 72px); }
+.sd-split--sm { font-size: clamp(22px, 2.6vw, 28px); }
+.sd-split--cream { --sd-c: var(--cream); }
+@supports not (-webkit-text-stroke: 1px) { .sd-split .o { color: var(--sd-c); } }
+
+/* ---- Eyebrow + section head with a connecting line ---- */
+.sd-eyebrow { font-family: var(--font-display); font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: .12em; text-transform: uppercase; color: var(--orange-ink); margin: 0; }
+.sd-on-crimson .sd-eyebrow { color: var(--on-crimson-muted); }
+.sd-head { display: flex; align-items: center; gap: 20px; }
+.sd-head::after { content: ""; flex: 1; min-width: 24px; border-top: var(--hairline) solid var(--line); }
+.sd-on-crimson .sd-head::after { border-top-color: var(--on-crimson-muted); }
+.sd-rule { border: 0; border-top: var(--hairline) solid var(--line); margin: 0; }
+
+/* ---- Button ---- */
+.sd-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 13px; line-height: 1; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; padding: 15px 22px; border-radius: var(--radius-pill); border: 2px solid transparent; cursor: pointer; transition: transform .18s ease, background-color .18s ease, color .18s ease, border-color .18s ease; }
+.sd-btn svg { width: 16px; height: 16px; flex: none; }
+.sd-btn:hover { transform: translateY(-2px); }
+.sd-btn--primary { background: var(--crimson); color: var(--on-crimson); }
+.sd-btn--primary:hover { background: var(--crimson-deep); }
+.sd-btn--accent { background: var(--orange); color: var(--ink); border-color: var(--ink); }
+.sd-btn--ghost { background: transparent; color: var(--crimson); border-color: var(--crimson); }
+.sd-btn--ghost:hover { background: var(--crimson); color: var(--on-crimson); }
+.sd-btn--cream { background: var(--cream); color: var(--crimson); }
+.sd-btn--cream:hover { background: var(--cream-deep); }
+.sd-btn--line-cream { background: transparent; color: var(--cream); border-color: var(--cream); }
+.sd-btn--line-cream:hover { background: var(--cream); color: var(--crimson); }
+
+/* ---- PillLink: a link dressed as a search bar ---- */
+.sd-pill { display: inline-flex; align-items: center; gap: 12px; margin: 7px; padding: 7px 22px 7px 7px; background: var(--cream); color: var(--ink); text-decoration: none; font-size: 15px; line-height: 1.2; border: var(--hairline) solid var(--line); border-radius: var(--radius-pill); box-shadow: 0 0 0 5px var(--cream), 0 0 0 6.5px var(--line); transition: transform .18s ease; max-width: calc(100% - 14px); }
+.sd-pill b { font-weight: 600; color: var(--crimson); }
+.sd-pill__icon { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--crimson); color: var(--on-crimson); }
+.sd-pill__icon svg { width: 16px; height: 16px; }
+.sd-pill__text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sd-pill:hover { transform: translateY(-2px); }
+
+/* ---- Sticker: tilted rounded badge ---- */
+.sd-sticker { display: inline-grid; place-items: center; min-width: 46px; height: 46px; padding: 0 11px; border-radius: var(--radius-sm); background: var(--cream); border: 2px solid var(--crimson); color: var(--crimson); font-family: var(--font-display); font-weight: 700; font-size: 13px; line-height: 1; white-space: nowrap; transform: rotate(var(--tilt, 0deg)); }
+.sd-sticker--crimson { background: var(--crimson); color: var(--on-crimson); border-color: var(--cream); box-shadow: 0 0 0 2px var(--crimson); }
+.sd-sticker--orange { background: var(--orange); color: var(--ink); border-color: var(--ink); }
+
+/* ---- Decoration: sparkle + blob mascot ---- */
+.sd-spark { display: inline-block; width: 28px; height: 28px; fill: var(--spark); flex: none; }
+.sd-spark--cream { fill: var(--cream); }
+.sd-blobs { display: inline-block; width: 112px; height: auto; flex: none; }
+.sd-blobs .b { fill: var(--spark); }
+.sd-blobs .h { fill: var(--cream); }
+.sd-blobs .e { fill: var(--ink); }
+.sd-blobs .m { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; }
+
+/* ---- Offset frame: a thin line shifted behind a block ---- */
+.sd-offset { position: relative; }
+.sd-offset::before { content: ""; position: absolute; inset: 16px 16px -16px -16px; border: var(--hairline) solid var(--line); border-radius: var(--radius-lg); pointer-events: none; }
+.sd-offset > * { position: relative; }
+
+/* ---- DotList ---- */
+.sd-dots { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; }
+.sd-dots--one { grid-template-columns: 1fr; }
+.sd-dots li { position: relative; padding-left: 24px; font-size: 17px; line-height: 1.45; }
+.sd-dots li::before { content: ""; position: absolute; left: 0; top: .42em; width: 11px; height: 11px; border-radius: 50%; background: var(--orange); }
+.sd-ph { color: var(--ink-muted); font-style: italic; }
+
+/* ---- Tag ---- */
+.sd-tag { display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 600; font-size: 11px; line-height: 1; letter-spacing: .06em; text-transform: uppercase; padding: 7px 12px; border-radius: var(--radius-pill); border: var(--hairline) solid currentColor; color: var(--crimson); }
+.sd-on-crimson .sd-tag { color: var(--on-crimson); }
+.sd-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---- Crimson panel + ProjectCard ---- */
+.sd-panel { background: var(--crimson); color: var(--on-crimson); border-radius: var(--radius-md); padding: clamp(24px, 5vw, 64px); }
+.sd-project { display: flex; flex-direction: column; gap: 16px; padding: clamp(22px, 3vw, 32px); border: var(--hairline) solid var(--on-crimson-muted); border-radius: var(--radius-md); color: var(--on-crimson); transition: transform .2s ease, background-color .2s ease; }
+.sd-project:hover { transform: translateY(-3px); background: var(--crimson-deep); }
+.sd-project__kicker { font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--on-crimson-muted); margin: 0; }
+.sd-project__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.12; margin: 0; color: var(--on-crimson); }
+.sd-project__label { font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--on-crimson-muted); margin: 0 0 6px; }
+.sd-project p { margin: 0; }
+.sd-project--empty { border-style: dashed; }
+.sd-project--empty:hover { background: transparent; }
+.sd-tree { list-style: none; margin: 0; padding: 0; }
+.sd-tree li { position: relative; padding: 4px 0 4px 22px; border-left: var(--hairline) solid var(--on-crimson-muted); }
+.sd-tree li::before { content: ""; position: absolute; left: 0; top: 1em; width: 12px; border-top: var(--hairline) solid var(--on-crimson-muted); }
+.sd-tree li:last-child { border-left-color: transparent; }
+.sd-tree li:last-child::after { content: ""; position: absolute; left: -1.5px; top: 0; height: 1em; border-left: var(--hairline) solid var(--on-crimson-muted); }
+.sd-btnrow { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---- Timeline ---- */
+.sd-timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.sd-timeline li { position: relative; padding: 0 0 32px 44px; }
+.sd-timeline li:not(:last-child)::after { content: ""; position: absolute; left: 8.25px; top: 14px; bottom: -14px; border-left: var(--hairline) solid var(--line); }
+.sd-timeline li:last-child { padding-bottom: 0; }
+.sd-timeline li::before { content: ""; position: absolute; z-index: 1; left: 0; top: 5px; width: 18px; height: 18px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 5px var(--cream); }
+.sd-timeline__when { font-family: var(--font-display); font-weight: 800; font-size: 20px; line-height: 1.3; color: var(--crimson); margin: 0 0 6px; }
+.sd-timeline__what { font-size: 18px; line-height: 1.45; font-weight: 400; margin: 0; }
+.sd-timeline__meta { font-size: 14px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: .08em; margin: 4px 0 0; }
+
+/* ---- CTA card + fields ---- */
+.sd-cta { background: var(--orange-deep); color: var(--on-orange); border-radius: var(--radius-lg); padding: clamp(26px, 5vw, 56px); }
+.sd-cta .sd-split { --sd-c: var(--cream); }
+.sd-field { display: flex; flex-direction: column; gap: 6px; }
+.sd-field label { font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+.sd-field input, .sd-field textarea { font: inherit; font-size: 16px; color: var(--ink); background: var(--cream); border: 2px solid var(--ink); border-radius: var(--radius-sm); padding: 12px 14px; width: 100%; }
+.sd-field textarea { min-height: 128px; resize: vertical; }
+.sd-field input::placeholder, .sd-field textarea::placeholder { color: var(--ink-muted); }
+
+/* ---- Scroll fade-in (only once JS marks the page) ---- */
+.sd-js .sd-reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.sd-js .sd-reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .sd-js .sd-reveal { opacity: 1; transform: none; transition: none; }
+  .sd-btn, .sd-pill, .sd-project { transition: none; }
+  .sd-btn:hover, .sd-pill:hover, .sd-project:hover { transform: none; }
+}

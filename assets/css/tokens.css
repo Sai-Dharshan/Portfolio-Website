@@ -1,0 +1,40 @@
+/* Design tokens: colour, type, spacing, radius and line weights. */
+:root {
+  --cream: #fbf3e3;
+  --cream-deep: #f3e3c8;
+  --ink: #2b1b18;
+  --ink-muted: #6d5550;
+  --crimson: #a51d2d;
+  --crimson-deep: #7e1421;
+  --line: #b0463f;
+  --orange: #f47b20;
+  --orange-deep: #e06210;
+  --orange-ink: #b84d08;
+  --spark: #ef5a2a;
+  --on-crimson: var(--cream);
+  --on-crimson-muted: #f3d6c8;
+  --on-orange: var(--ink);
+
+  --font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --font-sans: "Outfit", "Segoe UI", system-ui, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  --hairline: 1.5px;
+  --outline-stroke: 2px;
+
+  color-scheme: light;
+}
