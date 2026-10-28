@@ -65,6 +65,16 @@
 .pd-card h3 { margin: 0; display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 700; font-size: 16px; line-height: 1.35; color: var(--crimson); }
 .pd-card h3 .sd-sticker { --tilt: -5deg; height: 38px; min-width: 38px; font-size: 11px; padding: 0 8px; }
 .pd-card p { margin: 0; font-size: 16px; line-height: 1.55; }
+.pd-card ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.5; }
+.pd-cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sd-on-crimson .pd-card { background: transparent; border-color: var(--on-crimson-muted); }
+.sd-on-crimson .pd-card h3 { color: var(--on-crimson); }
+
+/* status badges: what is built vs computed vs roadmap */
+.pd-badge { display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 600; font-size: 10px; line-height: 1; letter-spacing: .08em; text-transform: uppercase; padding: 5px 9px; border-radius: var(--radius-pill); border: var(--hairline) solid var(--crimson); color: var(--crimson); white-space: nowrap; vertical-align: middle; }
+.pd-badge--built { background: var(--crimson); color: var(--on-crimson); }
+.pd-badge--roadmap { border-style: dashed; color: var(--orange-ink); border-color: var(--orange-ink); }
+.sd-on-crimson .pd-badge { border-color: var(--on-crimson); color: var(--on-crimson); }
 
 /* architecture flow */
 .pd-flow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1.2fr); gap: 14px; align-items: stretch; }
@@ -78,6 +88,10 @@
 .pd-stage ol li { position: relative; padding-left: 22px; }
 .pd-stage ol li::before { content: "↓"; position: absolute; left: 0; color: var(--on-crimson-muted); }
 .pd-stage ol li:first-child::before { content: "•"; }
+.pd-flow--4 { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1.25fr); }
+.pd-stage dl { margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; line-height: 1.45; }
+.pd-stage dt { font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--on-crimson-muted); }
+.pd-stage dd { margin: 2px 0 0; }
 .pd-arrow { align-self: center; color: var(--crimson); }
 .pd-arrow svg { width: 28px; height: 28px; display: block; }
 
@@ -108,7 +122,8 @@
   .pd-module { gap: 24px; }
   .pd-module--flip > div:first-child { order: 0; }
   .pd-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pd-flow { grid-template-columns: 1fr; }
+  .pd-flow, .pd-flow--4 { grid-template-columns: 1fr; }
+  .pd-cards--3 { grid-template-columns: 1fr; }
   .pd-arrow { justify-self: center; transform: rotate(90deg); }
 }
 @media (max-width: 640px) {
@@ -119,5 +134,12 @@
   .pd-pitch { font-size: 17px; }
   .pd-table { font-size: 15px; }
   .pd-table th, .pd-table td { padding: 12px 14px; }
+  /* stack rows into cards; labels come from data-label (set in main.js) */
+  .pd-table thead { display: none; }
+  .pd-table tr { display: block; padding: 6px 0; border-top: var(--hairline) solid var(--line); }
+  .pd-table tbody tr:first-child { border-top: 0; }
+  .pd-table td { display: block; border-top: 0; padding: 6px 16px; }
+  .pd-table td[data-label]::before { content: attr(data-label); display: block; font-family: var(--font-display); font-weight: 600; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--orange-ink); margin-bottom: 2px; }
+  .pd-table td:first-child { color: var(--crimson); font-weight: 600; }
   .pd-module { padding: 36px 0; }
 }

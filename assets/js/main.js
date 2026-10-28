@@ -38,6 +38,15 @@
       document.getElementById('sent').textContent = 'Opening your email app with the message filled in.';
     });
 
+    // Project tables: label each cell with its column header so rows can stack on phones
+    [].slice.call(document.querySelectorAll('.pd-table')).forEach(function (t) {
+      var heads = [].slice.call(t.querySelectorAll('thead th')).map(function (th) { return th.textContent; });
+      if (!heads.length) return;
+      [].slice.call(t.querySelectorAll('tbody tr')).forEach(function (tr) {
+        [].slice.call(tr.children).forEach(function (td, i) { if (heads[i]) td.setAttribute('data-label', heads[i]); });
+      });
+    });
+
     // Footer year
     var y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();

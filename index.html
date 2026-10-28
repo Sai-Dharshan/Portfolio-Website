@@ -58,7 +58,7 @@
         <span class="st st3 sd-sticker sd-sticker--orange">RF</span>
         <div class="stack" aria-hidden="true">
           <span class="sd-split sd-split--sm"><span class="o">Stack</span></span>
-          <div class="chips"><span class="sd-sticker">EO/IR</span><span class="sd-sticker">Radar</span></div>
+          <div class="chips"><span class="sd-sticker">MEMS</span><span class="sd-sticker">SDR</span></div>
           <svg class="arrow" viewBox="0 0 70 40"><path d="M64 4C48 4 30 10 22 30"/><path d="M14 22l8 10 9-8"/></svg>
         </div>
         <svg class="sd-spark sp2" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg>
@@ -70,7 +70,7 @@
       <p class="sd-split sd-split--xl sd-split--case" aria-hidden="true"><span class="o">Hello.</span></p>
       <h1 class="sd-split sd-split--lg sd-split--case"><span class="s">I’m Sai Dharshan!</span></h1>
       <p class="where">CSE @ Sathyabama Institute of Science &amp; Technology · ML &amp; Defence Tech</p>
-      <p class="lede">I’m a Computer Science Engineering undergraduate in Chennai, working where machine learning meets defence technology. I build multi-sensor systems for detecting drones in difficult terrain, I’m developing a drone survey system that verifies how much legacy waste actually leaves city dumpsites, and I’m founding Aeroscan Defence Systems to take counter-drone tech to high-altitude regions.</p>
+      <p class="lede">I’m a Computer Science Engineering undergraduate in Chennai, working where machine learning meets defence technology. I lead team GOODFELLASS on a terrain-aware counter-drone system designed to hear drones past mountain ridges, I’m developing a drone survey system that verifies how much legacy waste actually leaves city dumpsites, and I’m founding Aeroscan Defence Systems to take that counter-drone work to high-altitude regions.</p>
       <div class="cta-row">
         <a class="sd-btn sd-btn--primary" href="#projects">View Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
         <a class="sd-btn sd-btn--ghost" href="#contact">Get in touch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></a>
@@ -102,7 +102,7 @@
     <div class="skill sd-reveal"><h3><span class="n">02</span>ML &amp; Data</h3>
       <ul class="sd-dots"><li>Machine learning</li><li>NLP · code-mixed text</li><li>scikit-learn</li><li>Data augmentation</li></ul></div>
     <div class="skill sd-reveal"><h3><span class="n">03</span>Hardware &amp; Sensors</h3>
-      <ul class="sd-dots"><li>RF sensing</li><li>Radar</li><li>EO/IR imaging</li><li>Acoustic arrays</li><li>Sensor fusion</li></ul></div>
+      <ul class="sd-dots"><li>Acoustic arrays (MEMS, I²S)</li><li>ESP32-S3 firmware</li><li>RS-422 signalling</li><li>SDR (RTL-SDR, GNSS-SDR)</li><li>Ruggedisation (MIL-STD-810H)</li></ul></div>
   </div>
 </section>
 
@@ -119,24 +119,24 @@
       </div>
       <div class="proj-grid">
         <article class="sd-project feat">
-          <p class="sd-project__kicker">Smart India Hackathon · SIH26050 · DRDO · Team GoodFellas</p>
-          <h3 class="sd-project__title">High-Altitude Counter-UAS System</h3>
+          <p class="sd-project__kicker">Smart India Hackathon 2026 · SIH26050 · DRDO · Team leader, GOODFELLASS</p>
+          <h3 class="sd-project__title">Terrain-Aware Counter-UAS System</h3>
           <div class="feat-body">
             <div>
               <div><p class="sd-project__label">The problem</p>
-                <p>Drones are hard to detect in high-altitude terrain: ridges block line-of-sight, and fog and snow blind cameras.</p></div>
-              <div class="sd-tags"><span class="sd-tag">Sensor fusion</span><span class="sd-tag">RF</span><span class="sd-tag">Radar</span><span class="sd-tag">EO/IR</span><span class="sd-tag">Acoustic</span><span class="sd-tag">Hardware</span></div>
+                <p>At 4,500–5,000 m, ridges block line of sight and fog and snow blind optics. Hardening the hardware can’t fix that, so the system senses at wavelengths terrain and weather don’t block.</p></div>
+              <div class="sd-tags"><span class="sd-tag">Acoustic arrays</span><span class="sd-tag">Signal processing</span><span class="sd-tag">ESP32-S3</span><span class="sd-tag">SDR</span><span class="sd-tag">Ruggedisation</span><span class="sd-tag">Hardware</span></div>
             </div>
             <div>
-              <div><p class="sd-project__label">What I built</p>
+              <div><p class="sd-project__label">What we built</p>
                 <ul class="sd-tree">
-                  <li>Anti-drone detection that fuses RF, radar, EO/IR and acoustic sensors</li>
-                  <li>Weather-based sensor weighting that shifts trust between sensors as visibility changes</li>
-                  <li>A design aimed at line-of-sight blockage and fog/snow in mountain terrain</li>
+                  <li>A full-scale 8-microphone nested acoustic array, designed to hear rotors past a ridge; built and tested at sea level</li>
+                  <li>A satellite forward-scatter corridor gate that flags drones crossing mountain passes (designed)</li>
+                  <li>Fixes for two altitude errors: a sound-speed bearing bias of up to ~12° and a ×1.29 rotor-tone shift</li>
                 </ul></div>
               <div class="sd-btnrow">
                 <a class="sd-btn sd-btn--cream" href="https://github.com/Sai-Dharshan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-5 4 5 4m8-8 5 4-5 4"/></svg> GitHub</a>
-                <a class="sd-btn sd-btn--line-cream" href="projects/counter-uas.html" aria-label="View more about the High-Altitude Counter-UAS System">View more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+                <a class="sd-btn sd-btn--line-cream" href="projects/counter-uas.html" aria-label="View more about the Terrain-Aware Counter-UAS System">View more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
               </div>
             </div>
           </div>
@@ -171,16 +171,16 @@
     <div class="startup-card">
       <svg class="sd-blobs" viewBox="0 0 140 72" aria-hidden="true"><g class="b"><circle cx="24" cy="46" r="17"/><circle cx="72" cy="34" r="27"/><circle cx="118" cy="48" r="15"/></g><g class="h"><circle cx="17" cy="38" r="3.5"/><circle cx="61" cy="22" r="5"/><circle cx="112" cy="41" r="3"/></g><g class="e"><circle cx="19" cy="45" r="3.4"/><circle cx="29" cy="45" r="3.4"/><circle cx="64" cy="31" r="5.2"/><circle cx="80" cy="31" r="5.2"/><circle cx="114" cy="47" r="3"/><circle cx="123" cy="47" r="3"/></g><path class="m" d="M66 43q6 5 12 0"/><path class="b" d="M104 6c.7 5 2 7 7 8-5 1-6.3 3-7 8-.7-5-2-7-7-8 5-1 6.3-3 7-8Z"/></svg>
       <div>
-        <p class="sd-eyebrow">Founder · In incubation</p>
+        <p class="sd-eyebrow">Founder · Incubation proposal</p>
         <h2 id="startup-h" class="sd-split name"><span class="s">Aeroscan</span><span class="o">Defence Systems</span></h2>
-        <p class="lede">A defence-tech startup building anti-drone systems for high-altitude regions. Its first product grows out of the Counter-UAS work above: multi-sensor drone detection designed for terrain where line-of-sight and visibility fail. Aeroscan is in incubation at Sathyabama Institute of Science &amp; Technology.</p>
+        <p class="lede">A defence-tech startup building anti-drone systems for high-altitude regions. Its first and only product is the terrain-aware counter-UAS system above: acoustic and satellite forward-scatter sensing for terrain where line of sight and visibility fail. Aeroscan Defence Systems Pvt. Ltd. is being proposed to the startup incubation cell at Sathyabama Institute of Science &amp; Technology.</p>
         <div class="cta-row"><a class="sd-btn sd-btn--primary" href="#contact">Talk about Aeroscan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
       </div>
       <dl class="facts">
         <div><dt>Focus</dt><dd>Counter-drone systems</dd></div>
         <div><dt>Built for</dt><dd>High-altitude regions</dd></div>
-        <div><dt>First product</dt><dd>Anti-drone system</dd></div>
-        <div><dt>Stage</dt><dd>College incubation</dd></div>
+        <div><dt>First product</dt><dd>Terrain-aware C-UAS</dd></div>
+        <div><dt>Stage</dt><dd>Incubation proposal</dd></div>
         <div><dt>Role</dt><dd>Founder</dd></div>
       </dl>
       <svg class="sd-spark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg>
@@ -219,7 +219,7 @@
     <div id="achievements">
       <div class="sd-head sec-head sd-reveal"><h2 class="sd-split"><span class="o">Achieve</span><span class="s">ments</span></h2></div>
       <ul class="ach sd-reveal">
-        <li><svg class="sd-spark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg><div><p class="t">Smart India Hackathon</p><p class="m">Entry for SIH26050 (DRDO) with team GoodFellas</p></div></li>
+        <li><svg class="sd-spark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg><div><p class="t">Smart India Hackathon</p><p class="m">SIH 2026 idea submission for SIH26050 (DRDO), as team leader of GOODFELLASS</p></div></li>
       </ul>
     </div>
   </div>
