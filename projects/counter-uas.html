@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terrain-Aware Counter-UAS System — Sai Dharshan</title>
+<meta name="description" content="SIH26050 (DRDO): a high-altitude anti-drone system that senses at wavelengths terrain and weather don't block, with a ridge-diffraction acoustic array and a satellite forward-scatter corridor gate. Team GOODFELLASS, led by Sai Dharshan.">
+<meta name="author" content="Sai Dharshan">
+<meta name="theme-color" content="#a51d2d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Terrain-Aware Counter-UAS System — Sai Dharshan">
+<meta property="og:description" content="Ridge-diffraction acoustic array and satellite forward-scatter corridor gate for anti-drone sensing at 4,500–5,000 m.">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Unbounded:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/project.css">
+<script src="../assets/js/main.js"></script>
+</head>
+<body class="sd-root">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+  <div class="topbar">
+    <svg class="sd-spark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg>
+    <a class="brand" href="../index.html" aria-label="Sai Dharshan, home"><span class="sd-sticker sd-sticker--crimson">SD</span><span class="txt">Sai Dharshan</span></a>
+    <span class="grow" aria-hidden="true"></span>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Sections">
+      <a href="../index.html#projects">Projects</a><a href="../index.html#startup">Startup</a><a href="../index.html#events">Events</a><a href="../index.html#education">Education</a><a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="wrap" id="top">
+  <a class="pd-back" href="../index.html#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg> All projects</a>
+  <div class="sd-offset sd-reveal">
+    <div class="sd-panel sd-on-crimson pd-hero">
+      <div class="pd-hero__main">
+        <p class="sd-eyebrow">Smart India Hackathon 2026 · SIH26050 · DRDO</p>
+        <h1 class="pd-title">Terrain-Aware Counter-UAS System</h1>
+        <p class="pd-pitch">A high-altitude anti-drone system that <strong>senses at wavelengths terrain and weather don’t block</strong>: an acoustic array designed to hear rotors past a ridge, and a satellite forward-scatter gate at mountain passes. It detects and cues, adding to DRDO’s existing D4-class chain rather than replacing it.</p>
+        <div class="sd-tags"><span class="sd-tag">Acoustic arrays</span><span class="sd-tag">Signal processing</span><span class="sd-tag">ESP32-S3</span><span class="sd-tag">SDR</span><span class="sd-tag">Ruggedisation</span><span class="sd-tag">Python</span></div>
+        <div class="sd-btnrow">
+          <a class="sd-btn sd-btn--cream" href="https://github.com/Sai-Dharshan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-5 4 5 4m8-8 5 4-5 4"/></svg> GitHub</a>
+        </div>
+      </div>
+      <dl class="pd-facts">
+        <div><dt>Role</dt><dd>Team leader</dd></div>
+        <div><dt>Team</dt><dd>GOODFELLASS · ID 152794</dd></div>
+        <div><dt>Problem statement</dt><dd>SIH26050 · DRDO</dd></div>
+        <div><dt>Theme</dt><dd>Robotics &amp; Drones · Hardware</dd></div>
+        <div><dt>Status</dt><dd>Full-scale acoustic prototype, sea-level tested</dd></div>
+      </dl>
+    </div>
+  </div>
+  <!-- Placeholder image: swap the src for the real file and update the alt text. Label renders as renders. -->
+  <figure class="pd-figure pd-hero-fig sd-reveal">
+    <img src="../assets/img/projects/counter-uas/hero.svg" alt="Placeholder: terrain-aware counter-UAS concept render" width="1600" height="900">
+    <figcaption>Concept render, not a photograph.</figcaption>
+  </figure>
+</header>
+
+<!-- STATUS -->
+<section class="wrap sec" aria-labelledby="status-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">Where it stands · October 2026</p>
+    <div class="sd-head"><h2 id="status-h" class="sd-split"><span class="s">Sta</span><span class="o">tus</span></h2></div>
+  </div>
+  <div class="pd-cards pd-cards--3 sd-reveal">
+    <div class="pd-card"><h3><span class="pd-badge pd-badge--built">Done</span></h3>
+      <ul><li>Physics computed from ITU-R and IEC standards</li><li>Software tested in simulation: bearings recovered to within 0.1°</li><li>Full-scale acoustic prototype built and tested at sea level</li></ul></div>
+    <div class="pd-card"><h3><span class="pd-badge pd-badge--roadmap">Not yet done</span></h3>
+      <ul><li>No altitude, chamber or flight results yet</li><li>Corridor gate designed, not built</li><li>Next: refine the prototype and test it at high altitude</li></ul></div>
+    <div class="pd-card"><h3><span class="pd-badge">Limits, stated plainly</span></h3>
+      <ul><li>Acoustic range is hundreds of metres, not kilometres</li><li>The gate gives crossings, not tracks</li><li>Warning time is about 20 s</li></ul></div>
+  </div>
+  <p class="pd-evidence sd-reveal" style="margin-top:16px">Performance numbers on this page are targets; costs and schedule are estimates; the tone shift, bearing biases and capability forecast are predictions.</p>
+</section>
+
+<!-- PROBLEM -->
+<section class="wrap sec" aria-labelledby="problem-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">01 · The problem at 4,500–5,000 m</p>
+    <div class="sd-head"><h2 id="problem-h" class="sd-split"><span class="s">Prob</span><span class="o">lem</span></h2></div>
+  </div>
+  <div class="pd-cards sd-reveal">
+    <div class="pd-card"><h3><span class="sd-sticker">01</span>Degradation</h3><p>Cold, thin air, icing and dust wear down the hardware. <b>Hardening fixes this.</b></p></div>
+    <div class="pd-card"><h3><span class="sd-sticker sd-sticker--crimson">02</span>Occlusion</h3><p>Ridges block line of sight; fog and snow blind the optics. <b>Hardening cannot fix this</b>, and in mountains it dominates.</p></div>
+  </div>
+  <p class="pd-callout sd-reveal" style="margin:24px 0"><b>Key insight:</b> sense at wavelengths that terrain and weather don’t block.</p>
+  <div class="pd-table-wrap sd-reveal">
+    <table class="pd-table">
+      <thead><tr><th scope="col">Situation</th><th scope="col">Our sensing channel</th><th scope="col">Camera / optics</th><th scope="col">Source</th></tr></thead>
+      <tbody>
+        <tr><td>Over a 100 m ridge, 2 + 2 km path</td><td><b>≈ 24 dB</b> loss for a 200 Hz rotor tone</td><td>≈ 89 dB</td><td>ITU-R P.526-16</td></tr>
+        <tr><td>Dense fog</td><td>GNSS L1 <b>≈ 0.0012 dB/km</b> (77 GHz radar ≈ 1.8 dB/km)</td><td>≈ 315–340 dB/km</td><td>ITU-R P.840-9</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="pd-evidence sd-reveal">Computed, and independently recomputed to within 0.5 dB.</p>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="wrap sec" aria-labelledby="arch-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">02 · Terrain-aware C-UAS</p>
+    <div class="sd-head"><h2 id="arch-h" class="sd-split"><span class="s">Sys</span><span class="o">tem</span></h2></div>
+  </div>
+  <div class="pd-prose sd-reveal" style="margin-bottom:28px">
+    <p>The terrain picks the sensing wave, and the elevation map (CartoDEM) is an input to fusion. The chain adds to DRDO’s existing D4-class system; it does not replace it.</p>
+  </div>
+  <div class="pd-flow pd-flow--4 sd-reveal">
+    <div class="pd-stage"><h3>Corridor gate</h3><ul><li>Drone crossing at a pass</li><li>Doppler signature</li></ul></div>
+    <span class="pd-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    <div class="pd-stage"><h3>Acoustic array</h3><ul><li>Bearing past the ridge</li><li>3-node triangulation for range</li></ul></div>
+    <span class="pd-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    <div class="pd-stage"><h3>DEM terrain mask</h3><ul><li>Flags whether the drone is in line of sight</li></ul></div>
+    <span class="pd-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    <div class="pd-stage pd-stage--dark"><h3>Cue</h3>
+      <dl><div><dt>Line of sight</dt><dd>D4 EO/IR and laser</dd></div><div><dt>No line of sight</dt><dd>Gate jammer (Idea B) or crest head (Idea C)</dd></div></dl></div>
+  </div>
+  <p class="pd-callout sd-reveal" style="margin-top:24px"><b>Detect and cue.</b> Neutralisation means re-siting and cueing existing soft-kill, not building a new weapon. The gate jammer denies the route; it does not down the drone.</p>
+
+  <h3 class="pd-sub sd-reveal">Five contributions</h3>
+  <div class="pd-cards sd-reveal">
+    <div class="pd-card"><h3><span class="sd-sticker sd-sticker--crimson">01</span>Diffraction as the design point</h3><p>Sound bending over the ridge is what the system relies on, not an impairment it fights.</p></div>
+    <div class="pd-card"><h3><span class="sd-sticker sd-sticker--crimson">02</span>Two altitude errors, found and fixed</h3><p>A sound-speed bearing bias of up to ~12°, and a ×1.29 rotor-tone shift.</p></div>
+    <div class="pd-card"><h3><span class="sd-sticker sd-sticker--crimson">03</span>Nested array <span class="pd-badge pd-badge--built">Built</span></h3><p>A compact core rules out ghost targets; far pods on unequal arms give precision; all on one clock. Self-survey and self-measured wind are on the roadmap.</p></div>
+    <div class="pd-card"><h3><span class="sd-sticker sd-sticker--crimson">04</span>DEM-aware localisation <span class="pd-badge pd-badge--roadmap">Roadmap</span></h3><p>Treats the terrain as a known lens, predicting how the bearing bends over a crest.</p></div>
+    <div class="pd-card"><h3><span class="sd-sticker sd-sticker--crimson">05</span>Silent corridor gate <span class="pd-badge pd-badge--roadmap">Designed</span></h3><p>A receive-only gate that keeps working alongside our own jammer.</p></div>
+  </div>
+</section>
+
+<!-- IDEA 1: ACOUSTIC ARRAY -->
+<section class="wrap sec" aria-labelledby="array-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">03 · Idea 1 (primary) · Ridge-diffraction acoustic array</p>
+    <div class="sd-head"><h2 id="array-h" class="sd-split"><span class="s">Ar</span><span class="o">ray</span></h2></div>
+  </div>
+
+  <article class="pd-module sd-reveal">
+    <div>
+      <p class="sd-eyebrow">Built prototype · the “nested array”</p>
+      <h3><span class="sd-sticker sd-sticker--crimson">8</span>Microphones, two boards, one clock</h3>
+      <p><span class="pd-badge pd-badge--built">Built · sea-level tested</span></p>
+      <div class="pd-table-wrap">
+        <table class="pd-table">
+          <tbody>
+            <tr><td>Hub core</td><td>0.30 m regular tetrahedron of 4 microphones on a 0.8 m mast</td></tr>
+            <tr><td>Outrigger pods</td><td>4 pods on unequal arms of <b>1.1 / 1.7 / 2.3 / 3.1 m</b></td></tr>
+            <tr><td>Microphones</td><td>8 × INMP441 I²S MEMS, digitised at the capsule (no analog cable)</td></tr>
+            <tr><td>Boards</td><td>2 × ESP32-S3 (4 capsules each) on a shared clock</td></tr>
+            <tr><td>Materials</td><td>Al 6061-T6 frame and enclosure · graphene clear coat · closed-cell PU insulation foam</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pd-evidence">No performance figures are claimed for the graphene coat.</p>
+    </div>
+    <div style="gap:24px">
+      <figure class="pd-figure">
+        <img src="../assets/img/projects/counter-uas/prototype.svg" alt="Placeholder: photo of the full-scale nested acoustic array prototype" width="1600" height="900" loading="lazy">
+        <figcaption>The full-scale prototype.</figcaption>
+      </figure>
+      <figure class="pd-figure">
+        <img src="../assets/img/projects/counter-uas/array-geometry.svg" alt="Placeholder: nested array geometry with hub tetrahedron and four pods on unequal arms" width="1600" height="900" loading="lazy">
+        <figcaption>Nested array geometry.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <div class="pd-cols sd-reveal" style="margin-top:8px">
+    <div>
+      <h3 class="pd-sub">Shared clock between boards</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Board 1 is the clock master; board 2 runs as a slave</li>
+        <li>A READY handshake: no clock edge exists until both boards are listening</li>
+        <li>Every packet carries an absolute frame index; the host merges the streams on it</li>
+      </ul>
+      <h3 class="pd-sub">Long runs to the pods</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Plain I²S can’t run 3 m, so the pods use differential RS-422 over Cat5e</li>
+        <li>Blue pair BCLK · orange WS · green SD/READY · brown power/ground</li>
+        <li>AM26LV31/32 or MAX3490 line drivers (MAX485 is too slow); 74LVC157 multiplexer at the hub</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="pd-sub">Processing</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>GCC-PHAT time-delay estimation, band-limited on the cross-spectrum over 80 Hz–4 kHz. A known bug is fixed: filtering <i>before</i> PHAT inverts the delay</li>
+        <li>Harmonic-comb detector finds any rotor or propeller harmonic series, and rejects generator hum because hum is too stable</li>
+        <li>Temperature-corrected sound speed</li>
+        <li>Echoes off rock faces show up as separate lag peaks; only lags consistent across all microphone pairs are kept</li>
+      </ul>
+      <h3 class="pd-sub">Built-in</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Self-test (BIT) every 10 minutes</li>
+        <li>Jammer <b>BLANK</b> input mutes processing while our own jammer fires</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="pd-sub sd-reveal">Range: triangulation across 3 nodes, 150–200 m apart</h3>
+  <div class="pd-stats sd-reveal" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+    <div class="pd-stat"><span class="v">≈ 3%</span><span class="l">range error at 200 m</span></div>
+    <div class="pd-stat"><span class="v">≈ 9%</span><span class="l">range error at 500 m</span></div>
+    <div class="pd-stat"><span class="v">≈ 17%</span><span class="l">range error at 1 km</span></div>
+  </div>
+  <p class="pd-evidence sd-reveal">Targets, assuming 2° bearing accuracy. Spectral-tilt ranging was dropped because it saturates.</p>
+
+  <h3 class="pd-sub sd-reveal">Code</h3>
+  <div class="pd-table-wrap sd-reveal">
+    <table class="pd-table">
+      <tbody>
+        <tr><td><code class="pd-math">array_node.ino</code></td><td>Firmware for 1 or 2 boards, with the READY handshake</td></tr>
+        <tr><td><code class="pd-math">arraylib.py</code></td><td>Square, tetra and nested geometries</td></tr>
+        <tr><td><code class="pd-math">capture.py</code></td><td>Merges the two streams and reports drops</td></tr>
+        <tr><td><code class="pd-math">analyse.py</code></td><td>Analysis; in simulation, bearings are recovered to within 0.1°</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <article class="pd-module pd-module--flip sd-reveal" style="margin-top:48px;border-top:var(--hairline) solid var(--line);padding-top:48px">
+    <div>
+      <p class="sd-eyebrow">Planned field refinement · Build Guide v3</p>
+      <h3><span class="sd-sticker">v3</span>Two rigid tetrahedra</h3>
+      <p><span class="pd-badge pd-badge--roadmap">Roadmap · not what is built</span></p>
+      <p>The field node replaces core-plus-pods with <b>two 0.25 m-edge tetrahedra</b>, each with its own ESP32-S3 and LiFePO4 battery, joined by a shared RS-422 clock and an acoustically measured 4 m baseline. Sampling at 48 kHz.</p>
+      <div class="pd-table-wrap">
+        <table class="pd-table">
+          <thead><tr><th scope="col">Edge</th><th scope="col">Aliasing ceiling</th><th scope="col">Margin over 516 Hz</th></tr></thead>
+          <tbody>
+            <tr><td>0.30 m</td><td>521 Hz</td><td>1%</td></tr>
+            <tr><td>0.25 m</td><td>625 Hz</td><td><b>21%</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pd-evidence">At −30 °C and 5,000 m the 400 Hz harmonic shifts to 516 Hz.</p>
+      <ul class="sd-dots sd-dots--one">
+        <li><b>Wind from the array itself:</b> two-way chirps between the halves, <code class="pd-math">t_ab = d/(c+u)</code>, <code class="pd-math">t_ba = d/(c−u)</code>; 39 µs per m/s at d = 2 m. Needs the shared clock.</li>
+        <li><b>Limit found:</b> picking the right grating lobe in one snapshot works only up to a 4–5 m baseline; 10–20 m needs multi-hypothesis tracking.</li>
+        <li><b>Cost:</b> node ≈ ₹24,700 (estimate).</li>
+      </ul>
+    </div>
+    <figure class="pd-figure">
+      <img src="../assets/img/projects/counter-uas/field-node.svg" alt="Placeholder: render of the planned field node with two 0.25 m tetrahedra" width="1600" height="900" loading="lazy">
+      <figcaption>Planned field node (render).</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- IDEA 2: CORRIDOR GATE -->
+<section class="wrap sec" aria-labelledby="gate-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">04 · Idea 2 (secondary) · Satellite forward-scatter corridor gate</p>
+    <div class="sd-head"><h2 id="gate-h" class="sd-split"><span class="s">Ga</span><span class="o">te</span></h2></div>
+  </div>
+  <article class="pd-module sd-reveal" style="padding-top:8px">
+    <div>
+      <h3>Crossings at the choke points</h3>
+      <p><span class="pd-badge pd-badge--roadmap">Designed · not built</span></p>
+      <p><b>Principle.</b> A drone crossing the satellite-to-receiver line scatters the signal strongly forward (Babinet’s principle). The sensor is receive-only and gives <b>crossings, not tracks</b>. Gate width is the Fresnel radius, <code class="pd-math">√(λ·d)</code>.</p>
+      <p><b>Siting.</b> Terrain that blinds radar also funnels a hidden drone into passes, nallahs and valley floors. Gates sit forward at those choke points, not on a perimeter: warning comes from where the gate is placed, not from how far it sees.</p>
+    </div>
+    <figure class="pd-figure">
+      <img src="../assets/img/projects/counter-uas/corridor-gate.svg" alt="Placeholder: corridor gate sited at a mountain pass" width="1600" height="900" loading="lazy">
+      <figcaption>Gate siting at a mountain pass.</figcaption>
+    </figure>
+  </article>
+  <div class="pd-table-wrap sd-reveal">
+    <table class="pd-table">
+      <thead><tr><th scope="col">Configuration</th><th scope="col">Hardware</th><th scope="col">Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Field (operational)</td><td>Ku-band geostationary beacon, single channel, fixed baseline</td><td><b>≈ 49×</b> the radar cross-section of GPS L1 at 11 GHz; the dish rejects ground jammers; the LNB needs 13–18 V but the RTL-SDR v4 bias-tee gives 4.5 V, so a separate inserter is required</td></tr>
+        <tr><td>Bench / development</td><td>One patch antenna, one RTL-SDR v4, GNSS-SDR</td><td>One channel is enough because the reference is a software replica of the public C/A code</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pd-cols sd-reveal" style="margin-top:32px">
+    <div>
+      <h3 class="pd-sub">Signal and discrimination</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Signature: a <b>Doppler chirp of ≈ 17 Hz/s</b>, from <code class="pd-math">v²/(λ·d_r)</code>. A rate, not a frequency, so it is matched-filterable</li>
+        <li>A real crossing appears on one satellite; faults, scintillation or cloud appear on all. The receiver processes ≥ 4 satellites and rejects anything common</li>
+        <li>A jump in the GNSS noise floor on every satellite at once is reported as a hostile-EW <b>alert</b>, not a failure</li>
+        <li>Receiver thermal drift cancels in the cross-correlation</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="pd-sub">Reach and cost</h3>
+      <div class="pd-stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="pd-stat"><span class="v">50–80 m</span><span class="l">realistic reach</span></div>
+        <div class="pd-stat"><span class="v">₹20,300</span><span class="l">per gate (estimate)</span></div>
+      </div>
+      <p class="pd-evidence"><span class="pd-badge pd-badge--roadmap">Roadmap</span> Coverage planner: DEM + satellite orbits → fraction of each hour each corridor is covered.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEUTRALISATION -->
+<section class="wrap sec" aria-labelledby="deny-h">
+  <div class="sd-offset sd-reveal">
+    <div class="sd-panel sd-on-crimson">
+      <div class="panel-head">
+        <div>
+          <p class="sd-eyebrow">05 · Neutralisation strand</p>
+          <h2 id="deny-h" class="sd-split sd-split--cream"><span class="s">De</span><span class="o">ny</span></h2>
+        </div>
+        <p class="note">“Deny at the choke point, not through the hill.” All numbers are computed, not measured.</p>
+      </div>
+      <div class="pd-cards">
+        <div class="pd-card"><h3><span class="sd-sticker sd-sticker--crimson">1</span>B · Gate-triggered choke-point jammer</h3>
+          <ul><li>The lead mode, keyed only on a gate crossing</li><li>10 mW nominal (100 mW ceiling) on L1; 0.1–1 W per C2 band (2.4 / 5.8 GHz) into a sector antenna down the pass</li><li>≈ 14 µW breaks L1 lock at 80 m; denial bubble ≈ 2 km in-beam at 10 mW, contained by the valley walls</li><li>1 W jammer vs a 100 mW controller: C2 J/S ≈ 41 dB. Losing C2 usually triggers return-to-home</li></ul></div>
+        <div class="pd-card"><h3><span class="sd-sticker">2</span>C · Ridge-crest slave effector</h3>
+          <ul><li>The fallback: D4’s own jammer or laser on the crest to restore line of sight</li><li>L1 then needs ≈ 8.7 mW instead of 71 W</li><li>The crest head is the most exposed node</li></ul></div>
+        <div class="pd-card"><h3><span class="sd-sticker">3</span>A · Jamming through the ridge · rejected</h3>
+          <ul><li>≈ 71 W for GNSS alone, with ≈ 180 km of line-of-sight collateral denial</li><li>≈ 6.3 kW (2.4 GHz) or ≈ 15 kW (5.8 GHz) for C2</li></ul></div>
+        <div class="pd-card"><h3>Why not spoofing?</h3>
+          <p>Ruled out by cue accuracy (±2°, ~140 m cross-range at 4 km) and by collateral, not by power.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALTITUDE FINDINGS -->
+<section class="wrap sec" aria-labelledby="alt-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">06 · High-altitude engineering findings · our own derivations</p>
+    <div class="sd-head"><h2 id="alt-h" class="sd-split"><span class="s">Alti</span><span class="o">tude</span></h2></div>
+  </div>
+  <div class="pd-stats sd-reveal">
+    <div class="pd-stat pd-stat--hot"><span class="v">313 m/s</span><span class="l">speed of sound at −30 °C, not 343 m/s</span></div>
+    <div class="pd-stat pd-stat--hot"><span class="v">+11.9°</span><span class="l">uncorrected bearing bias at 60°</span></div>
+    <div class="pd-stat"><span class="v">×1.27–1.29</span><span class="l">rotor speed-up in thin air: 200 Hz → ≈ 255–258 Hz (prediction)</span></div>
+    <div class="pd-stat"><span class="v">×1.8</span><span class="l">convection derating at 4,500 m (Rhee)</span></div>
+  </div>
+  <div class="pd-table-wrap sd-reveal" style="margin-top:24px">
+    <table class="pd-table">
+      <thead><tr><th scope="col">Finding</th><th scope="col">Numbers</th><th scope="col">Fix</th></tr></thead>
+      <tbody>
+        <tr><td>Sound speed</td><td>Bearing off by +3.3° at 30° and +11.9° at 60°; no solution at all beyond 65.7°</td><td><b>Measure it:</b> a ₹100 temperature sensor</td></tr>
+        <tr><td>Rotor tone shift</td><td><code class="pd-math">f_alt = f_sea·√(ρ_sea/ρ_alt)</code>; drones also radiate ≈ 4.7 dB more quietly (prediction)</td><td>Processing band widened upward</td></tr>
+        <tr><td>Pointing</td><td>Micro-radian pointing</td><td>Designed out: no steered aperture</td></tr>
+        <tr><td>Cable rigidity</td><td>Cable stiffness at altitude</td><td>Removed by digitising at the capsule</td></tr>
+        <tr><td>Cooling</td><td>×1.8 convection derating at 4,500 m</td><td>Fanless conduction cooling, which also closes dust and snow paths</td></tr>
+        <tr><td>Vortex shedding</td><td>A 10 mm arm sheds at 200 Hz in a 10 m/s wind, inside our band</td><td>Helical strakes</td></tr>
+        <tr><td>Arm rigidity</td><td>8 × 1 mm 6061-T6 tube, iced, 30 m/s gust: 0.74 mm deflection, a tenth of a sample, safety factor ≈ 13 (a 6 mm tube is marginal)</td><td>8 × 1 mm tube arms</td></tr>
+        <tr><td>Enclosure</td><td>A sealed box sees ≈ 47 kPa, or ≈ 4.3 kN on a 0.3 m lid</td><td>IP67 with an ePTFE vent beats sealed IP68</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pd-cols sd-reveal" style="margin-top:32px">
+    <div>
+      <h3 class="pd-sub">Other hardening choices</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Silicone elastomers only; gold M12 IP67 connectors</li>
+        <li>LiFePO4 cells kept warm by processor waste heat in the PU-foamed bay, with charge-inhibit below 0 °C</li>
+        <li>Two-position mast (0.8 / 1.6 m); rock-bag ballast</li>
+        <li>Rigid, heatable, hydrophobic microphone screen</li>
+        <li>Graphene coat applied with bond points masked, so the EMI cage stays continuous</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="pd-sub">Portable unit</h3>
+      <div class="pd-stats" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">
+        <div class="pd-stat"><span class="v">≈ 1.7 kg</span><span class="l">per node</span></div>
+        <div class="pd-stat"><span class="v">450 mm</span><span class="l">longest part</span></div>
+        <div class="pd-stat"><span class="v">≈ 6 kg</span><span class="l">whole system</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RUGGEDISATION OF DRDO HARDWARE -->
+<section class="wrap sec" aria-labelledby="rugged-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">07 · Hardening DRDO’s existing D4-class hardware</p>
+    <div class="sd-head"><h2 id="rugged-h" class="sd-split"><span class="s">Rug</span><span class="o">ged</span></h2></div>
+  </div>
+  <div class="pd-prose sd-reveal" style="margin-bottom:24px">
+    <p>The problem statement puts special emphasis on DRDO’s existing EO/IR and laser gimbals, radar and jammer: cable rigidity, derating, structural deformation, wind, and drift in micro-radian pointing. The ruggedisation document (17 pp) opens with a clause-by-clause matrix.</p>
+  </div>
+  <div class="pd-table-wrap sd-reveal">
+    <table class="pd-table">
+      <thead><tr><th scope="col">Area</th><th scope="col">Computed numbers</th></tr></thead>
+      <tbody>
+        <tr><td>Derating at altitude</td><td>IEC 60664-1 electrical clearance × <b>1.48</b> at 5,000 m; water boils at 83 °C</td></tr>
+        <tr><td>Gimbal loads (assumed 0.4 m turret)</td><td>Wind torque 0.42 N·m in a 30 m/s gust, so holding 10 µrad needs ≥ <b>42,000 N·m/rad</b> of stiffness</td></tr>
+        <tr><td>Structural and optical deformation</td><td>Aluminium optical bench bends 354 µrad per 5 K gradient · steel bearing in an aluminium housing gains +44 µm clearance at −60 K · motor Kt/R ×1.40 at −40 °C · germanium lens defocuses 0.9 mm against a ±29 µm depth of focus</td></tr>
+        <tr><td>Material rule</td><td>Uniform soak: choose low expansion α (Invar, CFRP). Heat-flux gradients: choose low α/k; SiC is 7× better than aluminium, and titanium is worst</td></tr>
+        <tr><td>Qualification</td><td>MIL-STD-810H methods 500, 502, 503, 505 and 521, plus JSS 55555</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pd-cards sd-reveal" style="margin-top:24px">
+    <div class="pd-card"><h3>Cold-start cable-torque map</h3><p>A slow sweep learns the drag as <code class="pd-math">τ_c(θ,T)</code> and cancels it; the drag is also trended as a health signal.</p></div>
+    <div class="pd-card"><h3>Capability forecast</h3><p>“How well will we perform tonight”, built from the compensation models (prediction).</p></div>
+  </div>
+  <p class="pd-evidence sd-reveal">All values are taken from public descriptions or assumed; none are DRDO data.</p>
+</section>
+
+<!-- STRESS TEST -->
+<section class="wrap sec" aria-labelledby="stress-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">08 · Judge stress test · nine attacks and our answers</p>
+    <div class="sd-head"><h2 id="stress-h" class="sd-split"><span class="s">Stress </span><span class="o">test</span></h2></div>
+  </div>
+  <div class="pd-table-wrap sd-reveal">
+    <table class="pd-table">
+      <thead><tr><th scope="col">Attack</th><th scope="col">Answer</th></tr></thead>
+      <tbody>
+        <tr><td>“You answered a different problem statement”</td><td>Performance is the probability of detecting, tracking and engaging in time. We harden DRDO’s hardware <b>and</b> fix terrain blinding. Cueing cuts the EO search area by <b>≈ 50×</b> (±3° → a 6°×6° box), and the masking flag stops wasted dwell.</td></tr>
+        <tr><td>“Detecting what you can’t engage only buys seconds”</td><td>Yes, about 20 s. So the argument is track continuity through pop-up-and-peek and a pre-pointed effector, not lead time.</td></tr>
+        <tr><td>“Your own jammer kills the GNSS tripwire”</td><td>The Ku beacon is the field configuration and its dish rejects ground jammers; there is a BLANK input and look-through windows; GPS jamming becomes an alert.</td></tr>
+        <tr><td>“A satellite tripwire contradicts your occlusion argument”</td><td>It is a corridor gate. Terrain funnels hidden drones into passes, and the gates sit forward at those choke points.</td></tr>
+        <tr><td>“Knife-edge diffraction is the wrong model for sound”</td><td>ITU-R P.526 is used only for the radio-versus-optics comparison. The node measures wind itself and reports wind shadows in a live confidence map; range is stated as wind-dependent.</td></tr>
+        <tr><td>“Your bearing points at the ridge, not the drone”</td><td>DEM-aware localisation predicts the bending (roadmap). Arrivals at crest height are flagged as diffracted.</td></tr>
+        <tr><td>“Your threat model is assumed”</td><td>Terrain-hugging is how drones beat radar. The harmonic comb detects any rotor or propeller.</td></tr>
+        <tr><td>“You’ve multiplied failure points”</td><td>Nodes go only in the dead ground, so losing one loses one sector. Self-test runs every 10 minutes, and one person can set up a node.</td></tr>
+        <tr><td>“What’s actually new?”</td><td>Terrain-aware C-UAS, plus the five contributions above.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pd-cards sd-reveal" style="margin-top:24px">
+    <div class="pd-card"><h3>Why not a radar on the ridge?</h3><p>A radar emits, so it can be direction-found. A valley post has several dead sectors, which means several radars on exposed ridges. One acoustic sector costs ≈ ₹25k; a radar costs crores.</p></div>
+    <div class="pd-card"><h3>Fixed-wing drones or piston-engined munitions?</h3><p>The comb detector finds any harmonic series.</p></div>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="wrap sec" aria-labelledby="cost-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">09 · Estimates</p>
+    <div class="sd-head"><h2 id="cost-h" class="sd-split"><span class="s">Co</span><span class="o">st</span></h2></div>
+  </div>
+  <div class="pd-cols">
+    <div class="pd-table-wrap sd-reveal" style="align-self:start">
+      <table class="pd-table">
+        <thead><tr><th scope="col">Item</th><th scope="col">Estimate</th></tr></thead>
+        <tbody>
+          <tr><td>Field node</td><td>≈ ₹24,700</td></tr>
+          <tr><td>Gate</td><td>≈ ₹20,300</td></tr>
+          <tr><td>One valley post (3 nodes + 2 gates)</td><td><b>≈ ₹1.15 lakh</b>, excluding the gate jammer</td></tr>
+          <tr><td>Cost-down variant (shared battery, cheaper processor, phased trial)</td><td>≈ ₹0.9 lakh for the full system; ≈ ₹56k for a 2-node + 1-gate trial set</td></tr>
+          <tr><td>1/5-scale bench demonstrator (optional)</td><td>≈ ₹6,650</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sd-reveal">
+      <div class="pd-stat pd-stat--hot"><span class="v">≈ ₹1.15 lakh</span><span class="l">per valley post</span></div>
+      <p class="pd-callout" style="margin-top:16px"><b>Scales by terrain, not by perimeter:</b> add nodes in dead ground and gates at passes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALIDATION -->
+<section class="wrap sec" aria-labelledby="valid-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">10 · Validation plan</p>
+    <div class="sd-head"><h2 id="valid-h" class="sd-split"><span class="s">Valid</span><span class="o">ation</span></h2></div>
+  </div>
+  <div class="pd-cols">
+    <ol class="sd-timeline sd-reveal">
+      <li><p class="sd-timeline__when">Stage 1 · Bench</p>
+        <p class="sd-timeline__what">Each subsystem on the bench first. Stage 3 of either waits until stage 1 of both works.</p></li>
+      <li><p class="sd-timeline__when">Stage 2 · Real instrument</p>
+        <p class="sd-timeline__what">Chamber programme to MIL-STD-810H, including thermal cycling −40/+60 °C × 50; cold-soak deploy in mitts; wind tunnel with and without strakes; dust, submersion, shaker sweep, ice accretion.</p></li>
+      <li><p class="sd-timeline__when">Stage 3 · Outdoors</p>
+        <p class="sd-timeline__what">Field experiments E1–E5 and F1–F3, after DGCA clearance for any target flight.</p>
+        <p class="pd-evidence"><b>First result</b>E2, a drone behind an embankment: publishable, and needs no mountain.</p></li>
+    </ol>
+    <div class="sd-reveal">
+      <h3 class="pd-sub">Research gaps</h3>
+      <p style="margin:0;font-size:17px;line-height:1.65">Seven research gaps (G1–G7), identified in a literature sweep in September 2026, shape the experiment plan.</p>
+      <h3 class="pd-sub">Open engineering items</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Bench-verify ESP32-S3 slave full-duplex</li>
+        <li>If board 2 resets mid-session, frame alignment is lost: detected, not yet recovered automatically</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<section class="wrap sec" aria-labelledby="context-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">11 · Context</p>
+    <div class="sd-head"><h2 id="context-h" class="sd-split"><span class="s">Con</span><span class="o">text</span></h2></div>
+  </div>
+  <div class="pd-cols sd-reveal">
+    <div class="pd-prose">
+      <p>Built for Smart India Hackathon 2026, problem statement <b>SIH26050</b>: “High Altitude Performance Optimization and Robust Design of Anti-Drone System” (DRDO · Robotics and Drones · Hardware). I lead team <b>GOODFELLASS</b> (Team ID 152794) through the idea-submission round.</p>
+      <p>The system is the first and only product of <a href="../index.html#startup" style="color:var(--crimson)">Aeroscan Defence Systems Pvt. Ltd.</a>, my defence-tech startup, which is being proposed to the startup incubation cell at Sathyabama Institute of Science &amp; Technology.</p>
+      <p>An earlier version fused RF, radar, EO/IR and acoustic sensors with weather-based weighting. It was dropped in favour of the 8-microphone acoustic array plus the corridor gate, which address occlusion directly.</p>
+    </div>
+    <div>
+      <h3 class="pd-sub">Deliverables</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Idea deck v3: 6 slides on the official SIH 2026 template</li>
+        <li>Walkthrough video (~4:15, 7 chapters), plus a demo that walks a speaker around a building corner to show diffraction live</li>
+        <li>Build Guide v3 (16 pp) and Ruggedisation document (17 pp)</li>
+        <li>5-page plain-English judge brief and a 16-page technical annex</li>
+        <li>Acoustic array firmware and Python host tools</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="wrap sec" aria-label="Next project">
+  <div class="sd-offset sd-reveal">
+    <a class="sd-panel sd-on-crimson pd-next" href="landfill-survey.html">
+      <div>
+        <p class="sd-eyebrow">Next project</p>
+        <p class="sd-project__title">Drone-Based Landfill Survey System</p>
+      </div>
+      <span class="sd-btn sd-btn--cream">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-line"><hr class="sd-rule"><svg class="sd-spark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg><hr class="sd-rule" style="flex:0 0 64px"></div>
+  <div class="foot-row"><span class="c">© <span id="year">2026</span> Sai Dharshan</span><a href="#top">Back to top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V6m-6 6 6-6 6 6"/></svg></a></div>
+</footer>
+</body>
+</html>

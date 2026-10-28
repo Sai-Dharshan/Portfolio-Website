@@ -28,14 +28,23 @@
       if (ev.key === 'Escape' && nav.classList.contains('is-open')) { setOpen(false); btn.focus(); }
     });
 
-    // Contact form: opens the visitor's email app with the message filled in
+    // Contact form: opens the visitor's email app with the message filled in (home page only)
     var form = document.getElementById('contact-form');
-    form.addEventListener('submit', function (ev) {
+    if (form) form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       var n = form.elements.name.value.trim(), e = form.elements.email.value.trim(), m = form.elements.message.value.trim();
       var body = m + '\n\n— ' + n + (e ? ' (' + e + ')' : '');
       window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Hello from ' + (n || 'your portfolio')) + '&body=' + encodeURIComponent(body);
       document.getElementById('sent').textContent = 'Opening your email app with the message filled in.';
+    });
+
+    // Project tables: label each cell with its column header so rows can stack on phones
+    [].slice.call(document.querySelectorAll('.pd-table')).forEach(function (t) {
+      var heads = [].slice.call(t.querySelectorAll('thead th')).map(function (th) { return th.textContent; });
+      if (!heads.length) return;
+      [].slice.call(t.querySelectorAll('tbody tr')).forEach(function (tr) {
+        [].slice.call(tr.children).forEach(function (td, i) { if (heads[i]) td.setAttribute('data-label', heads[i]); });
+      });
     });
 
     // Footer year

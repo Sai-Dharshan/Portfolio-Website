@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drone-Based Landfill Survey System — Sai Dharshan</title>
+<meta name="description" content="A drone survey system that tells a city how much legacy waste has actually left a dumpsite, with an error range, separates removal from relocation, and flags underground fire hotspots in flight.">
+<meta name="author" content="Sai Dharshan">
+<meta name="theme-color" content="#a51d2d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Drone-Based Landfill Survey System — Sai Dharshan">
+<meta property="og:description" content="Uncertainty-bounded removal figures for dumpsite payment verification, plus in-flight thermal hotspot alerts.">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Unbounded:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/project.css">
+<script src="../assets/js/main.js"></script>
+</head>
+<body class="sd-root">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+  <div class="topbar">
+    <svg class="sd-spark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg>
+    <a class="brand" href="../index.html" aria-label="Sai Dharshan, home"><span class="sd-sticker sd-sticker--crimson">SD</span><span class="txt">Sai Dharshan</span></a>
+    <span class="grow" aria-hidden="true"></span>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Sections">
+      <a href="../index.html#projects">Projects</a><a href="../index.html#startup">Startup</a><a href="../index.html#events">Events</a><a href="../index.html#education">Education</a><a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="wrap" id="top">
+  <a class="pd-back" href="../index.html#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg> All projects</a>
+  <div class="sd-offset sd-reveal">
+    <div class="sd-panel sd-on-crimson pd-hero">
+      <div class="pd-hero__main">
+        <p class="sd-eyebrow">CiiA 2026 · Reworked · In progress</p>
+        <h1 class="pd-title">Drone-Based Landfill Survey System</h1>
+        <p class="pd-pitch">An independent drone survey system that tells a city <strong>how much legacy waste has actually left a dumpsite, with an error range</strong>. It separates real removal from waste that was only moved around inside the site, and flags underground fire hotspots during the flight.</p>
+        <div class="sd-tags"><span class="sd-tag">Drones</span><span class="sd-tag">Photogrammetry</span><span class="sd-tag">Computer vision</span><span class="sd-tag">Thermal imaging</span><span class="sd-tag">Edge AI</span><span class="sd-tag">Python</span></div>
+        <div class="sd-btnrow">
+          <a class="sd-btn sd-btn--cream" href="https://github.com/Sai-Dharshan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-5 4 5 4m8-8 5 4-5 4"/></svg> GitHub</a>
+        </div>
+      </div>
+      <dl class="pd-facts">
+        <div><dt>Origin</dt><dd>Reworked CiiA 2026 entry</dd></div>
+        <div><dt>Built for</dt><dd>Municipal corporations &amp; monitoring committees</dd></div>
+        <div><dt>Case site</dt><dd>Kodungaiyur, Chennai</dd></div>
+        <div><dt>Status</dt><dd>Phase 1 · campus validation</dd></div>
+      </dl>
+    </div>
+  </div>
+  <!-- Placeholder image: swap the src for the real file and update the alt text. -->
+  <figure class="pd-figure pd-hero-fig sd-reveal">
+    <img src="../assets/img/projects/landfill/hero.svg" alt="Placeholder: drone survey over a dumpsite" width="1600" height="900">
+  </figure>
+</header>
+
+<!-- WHAT CHANGED -->
+<section class="wrap sec" aria-labelledby="changed-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">01 · Why I reworked it</p>
+    <div class="sd-head"><h2 id="changed-h" class="sd-split"><span class="s">What </span><span class="o">changed</span></h2></div>
+  </div>
+  <div class="pd-prose sd-reveal" style="margin-bottom:28px">
+    <p>Classifying individual waste items from 30–60 m altitude is hard, rarely accurate, and nobody pays for it. Payment verification and fire risk are where the money and the safety risk are, so I rebuilt the system around those.</p>
+  </div>
+  <div class="pd-table-wrap sd-reveal">
+    <table class="pd-table">
+      <thead><tr><th scope="col">Original CiiA idea</th><th scope="col">Reworked system</th></tr></thead>
+      <tbody>
+        <tr><td>Classify individual waste items from the air</td><td>Map the site into <b>material zones</b>: mound, windrow, stockpile, soil-like fines, cleared ground, leachate, smouldering area</td></tr>
+        <tr><td>General “landfill monitoring” with no clear buyer</td><td>A named user: the <b>municipal corporation and its project monitoring committee</b>, who certify contractor payments</td></tr>
+        <tr><td>One volume number per survey</td><td><b>Volume change with a confidence interval</b>, converted to tonnes with the uncertainty carried through</td></tr>
+        <tr><td>Thermal imaging as a demo feature</td><td><b>Hotspot tracking across flights</b>, flagged onboard so the output is “check grid C4 now”, not a report next week</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="wrap sec" aria-labelledby="problem-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">02 · The problem</p>
+    <div class="sd-head"><h2 id="problem-h" class="sd-split"><span class="s">Prob</span><span class="o">lem</span></h2></div>
+  </div>
+
+  <h3 class="pd-sub sd-reveal">National scale</h3>
+  <div class="pd-stats sd-reveal">
+    <div class="pd-stat"><span class="v">2,421</span><span class="l">legacy dumpsites (2024 count), over 14,822 acres</span></div>
+    <div class="pd-stat"><span class="v">2,211 lakh t</span><span class="l">of legacy waste on those sites</span></div>
+    <div class="pd-stat"><span class="v">3.66 crore t</span><span class="l">remediated across India, Jan–Dec 2025</span></div>
+    <div class="pd-stat"><span class="v">DRAP</span><span class="l">Nov 2025 programme pushing the remaining sites in mission mode</span></div>
+  </div>
+  <div class="pd-prose sd-reveal" style="margin-top:20px">
+    <p>Swachh Bharat Mission-Urban 2.0 (launched October 2021) funds the clearing of legacy dumpsites. Cities report progress on the SBM-U portal, and that progress drives funding and rankings, so every reported tonne should be verifiable.</p>
+  </div>
+
+  <h3 class="pd-sub sd-reveal">Local case: Kodungaiyur, Chennai</h3>
+  <div class="pd-stats sd-reveal">
+    <div class="pd-stat"><span class="v">66.52 lakh t</span><span class="l">legacy waste identified, spread across 252 of 342.91 acres</span></div>
+    <div class="pd-stat"><span class="v">₹641 crore</span><span class="l">biomining contract, six packages, three contractors (Feb 2024)</span></div>
+    <div class="pd-stat"><span class="v">₹963.29 / t</span><span class="l">paid per tonne removed</span></div>
+    <div class="pd-stat"><span class="v">26.50 lakh t</span><span class="l">latest reported removal</span></div>
+  </div>
+  <div class="pd-prose sd-reveal" style="margin-top:20px">
+    <p>Anna University is the Project Monitoring Committee that supervises and certifies the contractors’ work. The site still takes in about 3,000 tonnes of fresh waste a day, and work slows or stops during the northeast monsoon.</p>
+  </div>
+
+  <h3 class="pd-sub sd-reveal">What that means in money</h3>
+  <div class="pd-stats sd-reveal" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="pd-stat pd-stat--hot"><span class="v">≈ ₹6.4 crore</span><span class="l">the cost of a 1% measurement error on 66.52 lakh t (66,520 t × ₹963.29)</span></div>
+    <div class="pd-stat pd-stat--hot"><span class="v">≈ ₹385 crore</span><span class="l">still to be certified for the remaining 40.02 lakh t</span></div>
+  </div>
+
+  <h3 class="pd-sub sd-reveal">The specific gaps</h3>
+  <div class="pd-cards sd-reveal">
+    <div class="pd-card"><h3><span class="sd-sticker">01</span>Removal vs relocation</h3><p>Contractors constantly dig, windrow and stockpile. A height drop in one area may just reappear as a stockpile elsewhere on the site.</p></div>
+    <div class="pd-card"><h3><span class="sd-sticker">02</span>Fresh waste masks progress</h3><p>New dumping on the same ground adds volume while legacy waste is removed, so a single net number hides both.</p></div>
+    <div class="pd-card"><h3><span class="sd-sticker">03</span>No error bars</h3><p>Most drone volume reports give one figure. A payment decision needs to know whether it is ±1% or ±8%.</p></div>
+    <div class="pd-card"><h3><span class="sd-sticker">04</span>Fires are found late</h3><p>Subsurface smouldering can spread undetected before smoke appears, and is far harder to put out than a surface fire.</p></div>
+  </div>
+</section>
+
+<!-- USERS -->
+<section class="wrap sec" aria-labelledby="users-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">03 · Who it’s for</p>
+    <div class="sd-head"><h2 id="users-h" class="sd-split"><span class="s">Us</span><span class="o">ers</span></h2></div>
+  </div>
+  <div class="pd-cols sd-reveal">
+    <div class="pd-prose">
+      <h3 class="pd-sub">Primary user</h3>
+      <p>The municipal corporation (e.g. Greater Chennai Corporation) and its project monitoring committee (e.g. Anna University at Kodungaiyur).</p>
+      <h3 class="pd-sub">Secondary users</h3>
+      <p>Contractors, to support their own claims; fire services; state pollution control boards.</p>
+    </div>
+    <div>
+      <h3 class="pd-sub">Each survey answers</h3>
+      <ol class="pd-steps">
+        <li>How many cubic metres and tonnes <b>left the site</b> since the last survey, and with what confidence range?</li>
+        <li>How much was only <b>moved within the site</b>, and how much <b>fresh waste</b> was added?</li>
+        <li>Where are the <b>thermal hotspots</b>, and are any of them growing?</li>
+        <li>Are any slopes <b>deforming</b> fast enough to be a collapse risk?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="wrap sec" aria-labelledby="arch-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">04 · System architecture</p>
+    <div class="sd-head"><h2 id="arch-h" class="sd-split"><span class="s">Sys</span><span class="o">tem</span></h2></div>
+  </div>
+  <div class="pd-flow sd-reveal">
+    <div class="pd-stage"><h3>In flight</h3>
+      <ul><li>RGB camera with RTK GNSS</li><li>Radiometric thermal camera</li><li>Optional: methane TDLAS sensor</li><li>Fixed ground control points and checkpoints, surveyed once</li></ul></div>
+    <span class="pd-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    <div class="pd-stage"><h3>Onboard (Jetson-class)</h3>
+      <ul><li>Image geotagging and coverage check</li><li>Live hotspot detection and alert to the ground crew</li><li>CH₄ readings logged with position</li></ul></div>
+    <span class="pd-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    <div class="pd-stage pd-stage--dark"><h3>Ground / cloud</h3>
+      <ol><li>SfM photogrammetry → point cloud, DEM, orthomosaic, thermal ortho</li><li>DEM-of-difference with uncertainty</li><li>Material-zone segmentation (ML)</li><li>Volume → tonnage (Monte Carlo)</li><li>Hotspot tracking across surveys</li><li>Survey report + web dashboard</li></ol></div>
+  </div>
+
+  <div class="pd-cols" style="margin-top:56px">
+    <div class="sd-reveal">
+      <h3 class="pd-sub">Hardware</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Mapping quadcopter carrying an RGB camera and a small radiometric thermal camera; RTK or PPK positioning strongly preferred</li>
+        <li>Permanent ground markers around the site edge, outside the working area, plus independent checkpoints for accuracy testing</li>
+        <li>NVIDIA Jetson-class module for in-flight hotspot detection</li>
+        <li>Later: downward-pointing open-path TDLAS methane sensor</li>
+      </ul>
+      <h3 class="pd-sub">Software</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>WebODM / OpenDroneMap for photogrammetry (Agisoft Metashape if available)</li>
+        <li>CloudCompare (M3C2) and Python (PDAL, rasterio, NumPy) for point clouds and change detection</li>
+        <li>PyTorch, with a U-Net or SegFormer-style model, for segmentation</li>
+        <li>Leaflet web map for the dashboard</li>
+      </ul>
+    </div>
+    <div class="sd-reveal">
+      <figure class="pd-figure">
+        <img src="../assets/img/projects/landfill/hardware.svg" alt="Placeholder: mapping drone with RGB and thermal payload" width="1600" height="900" loading="lazy">
+        <figcaption>Survey drone and payload.</figcaption>
+      </figure>
+      <h3 class="pd-sub">Flight plan, every survey</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Same flight lines, altitude, overlap (≥75% front, ≥65% side) and time of day, so surveys are comparable</li>
+        <li>RGB mapping flight by day; thermal flight at dawn or night, when solar heating is lowest and subsurface heat stands out</li>
+        <li>Monthly for payment verification; weekly thermal passes in the dry, fire-prone months</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="wrap sec" aria-labelledby="modules-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">05 · How it works</p>
+    <div class="sd-head"><h2 id="modules-h" class="sd-split"><span class="s">Mod</span><span class="o">ules</span></h2></div>
+  </div>
+
+  <article class="pd-module sd-reveal">
+    <div>
+      <p class="sd-eyebrow">Core</p>
+      <h3><span class="sd-sticker sd-sticker--crimson">01</span>Removal verification with uncertainty</h3>
+      <ol class="pd-steps">
+        <li>Build a DEM for each survey from the point cloud.</li>
+        <li>Compute the DEM of Difference per grid cell: <code class="pd-math">DoD = DEM(t₂) − DEM(t₁)</code></li>
+        <li>Estimate each survey’s vertical error from the checkpoints and combine them: <code class="pd-math">σ_DoD = √(σ₁² + σ₂²)</code></li>
+        <li>Apply a level of detection, <code class="pd-math">LoD95 = 1.96 × σ_DoD</code>. Smaller changes are treated as noise.</li>
+        <li>Use <b>spatially varying uncertainty</b>: steep, rough or poorly covered cells get bigger error bars than flat cleared ground (after Las2DoD and James et al. 2017).</li>
+        <li>Sum cut and fill separately to get removed and added volume, each with a confidence interval.</li>
+      </ol>
+      <p><b>Volume to tonnage.</b> Payment is per tonne, but drones measure volume. A density range (from weighbridge records or core samples) and the DEM error run together through a Monte Carlo simulation, so the output reads like:</p>
+      <p class="pd-callout"><b>41,200 t</b> removed · 95% interval 38,900–43,600 t<br><span style="font-size:14px;color:var(--ink-muted)">Example of the output format</span></p>
+      <p><b>Why this is the contribution.</b> Drone volume surveys of landfills are already common. Erosion and river researchers routinely report volume change with propagated uncertainty; bringing that discipline to <b>payment verification on an active waste site</b> is the new part.</p>
+    </div>
+    <figure class="pd-figure">
+      <img src="../assets/img/projects/landfill/change-map.svg" alt="Placeholder: cut and fill change map with cells below the level of detection greyed out" width="1600" height="900" loading="lazy">
+      <figcaption>Cut/fill change map; cells below the level of detection are greyed out.</figcaption>
+    </figure>
+  </article>
+
+  <article class="pd-module pd-module--flip sd-reveal">
+    <div>
+      <p class="sd-eyebrow">Separating removal from relocation</p>
+      <h3><span class="sd-sticker sd-sticker--crimson">02</span>Material-zone segmentation</h3>
+      <p><b>Classes:</b> legacy mound · excavation face · windrow · stockpile (RDF / inert / fine soil-like material) · fresh waste · cleared ground · leachate pond · smouldering or burnt area · vegetation · vehicles and machinery (masked out).</p>
+      <ul class="sd-dots sd-dots--one">
+        <li>Volume lost from mound cells and gained in stockpile or windrow cells is relocation, not removal.</li>
+        <li>Volume gained in fresh-waste cells is new dumping, reported separately.</li>
+        <li>Only material that leaves the site, or volume loss not balanced by gains elsewhere, counts toward removal.</li>
+      </ul>
+      <p><b>Data:</b> my own labelled orthomosaic tiles (starting with a few hundred), with height, slope and roughness from the DEM as extra input channels. Public aerial dumpsite datasets (AerialWaste, Roboflow) help with pretraining but don’t map landfill interiors.</p>
+    </div>
+    <figure class="pd-figure">
+      <img src="../assets/img/projects/landfill/zone-map.svg" alt="Placeholder: segmentation map of material zones across the dumpsite" width="1600" height="900" loading="lazy">
+      <figcaption>Material-zone map over the orthomosaic.</figcaption>
+    </figure>
+  </article>
+
+  <article class="pd-module sd-reveal">
+    <div>
+      <p class="sd-eyebrow">Fire risk</p>
+      <h3><span class="sd-sticker sd-sticker--crimson">03</span>Thermal hotspot tracking</h3>
+      <ul class="sd-dots sd-dots--one">
+        <li>Temperatures from a radiometric thermal camera are projected onto the 3D model, giving a “4D” model (X, Y, Z, temperature). A study at the Meruelo landfill in Spain did this with about 1.6 °C accuracy and found hot areas later confirmed on site.</li>
+        <li>Readings are corrected for emissivity and time of day: plastic, soil and wet surfaces read differently at the same temperature.</li>
+        <li>A surface hotspot shows heat near the surface, not depth. The output is a list of places to check with probes, not a diagnosis.</li>
+        <li>Each hotspot is tracked across flights (area, peak temperature, growth). Growth is the real warning sign.</li>
+        <li>The Jetson runs an anomaly detector during the flight and sends grid references to the ground crew immediately.</li>
+      </ul>
+    </div>
+    <figure class="pd-figure">
+      <img src="../assets/img/projects/landfill/thermal.svg" alt="Placeholder: thermal orthomosaic with flagged hotspots" width="1600" height="900" loading="lazy">
+      <figcaption>Thermal orthomosaic with flagged hotspots.</figcaption>
+    </figure>
+  </article>
+
+  <article class="pd-module pd-module--flip sd-reveal">
+    <div>
+      <p class="sd-eyebrow">Optional</p>
+      <h3><span class="sd-sticker">04</span>Slope deformation alerts</h3>
+      <p>Steep waste mounds can fail, especially after heavy rain; the 2017 Ghazipur landfill collapse in Delhi is the well-known Indian example. Repeat surveys already produce the data needed.</p>
+      <ul class="sd-dots sd-dots--one">
+        <li>Compare point clouds with M3C2 to detect slope movement between flights. A 2024 study on a Polish landfill reported about ±2.3 cm mean vertical displacement error.</li>
+        <li>Flag cells on steep slopes where movement exceeds the level of detection, especially after monsoon rain.</li>
+      </ul>
+    </div>
+    <figure class="pd-figure">
+      <img src="../assets/img/projects/landfill/slope.svg" alt="Placeholder: slope deformation map between two surveys" width="1600" height="900" loading="lazy">
+      <figcaption>Slope movement between two surveys.</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- OUTPUT -->
+<section class="wrap sec" aria-labelledby="output-h">
+  <div class="sd-offset sd-reveal">
+    <div class="sd-panel sd-on-crimson">
+      <div class="panel-head">
+        <div>
+          <p class="sd-eyebrow">06 · Deliverable per flight</p>
+          <h2 id="output-h" class="sd-split sd-split--cream"><span class="s">Survey </span><span class="o">report</span></h2>
+        </div>
+      </div>
+      <ul class="sd-tree" style="font-size:17px">
+        <li><b>Headline:</b> removed tonnage since the last survey with a 95% interval; cumulative total vs the contractor’s claim</li>
+        <li><b>Change map:</b> cut/fill by grid cell, with cells below the level of detection greyed out</li>
+        <li><b>Zone map:</b> relocation vs removal vs fresh dumping</li>
+        <li><b>Hotspot table:</b> grid ref, area, peak temperature, trend (new / stable / growing)</li>
+        <li><b>Slope alerts</b>, if Module 4 is on</li>
+        <li><b>Quality section:</b> checkpoint errors, coverage gaps, weather, anything that widens the error bars</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="wrap sec" aria-labelledby="roadmap-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">07 · Validation plan</p>
+    <div class="sd-head"><h2 id="roadmap-h" class="sd-split"><span class="s">Road</span><span class="o">map</span></h2></div>
+  </div>
+  <div class="pd-cols">
+    <ol class="sd-timeline sd-reveal">
+      <li><p class="sd-timeline__when">Phase 1 · Now – mid Nov 2026</p>
+        <p class="sd-timeline__what">Campus test: survey a sand/soil pile, remove a known volume (counted truckloads), survey again.</p>
+        <p class="pd-evidence"><b>Evidence</b>Does the DoD interval contain the true removed volume?</p></li>
+      <li><p class="sd-timeline__when">Phase 2 · Mid Nov – Dec 2026</p>
+        <p class="sd-timeline__what">Label orthomosaic tiles and train the zone segmentation model.</p>
+        <p class="pd-evidence"><b>Evidence</b>Per-class accuracy; relocation vs removal on a staged test.</p></li>
+      <li><p class="sd-timeline__when">Phase 3 · Dec 2026 – Jan 2027</p>
+        <p class="sd-timeline__what">Request past survey data or a supervised test flight via GCC and the Anna University PMC.</p>
+        <p class="pd-evidence"><b>Evidence</b>Comparison with the official certified figures.</p></li>
+      <li><p class="sd-timeline__when">Phase 4 · Exchange semester</p>
+        <p class="sd-timeline__what">Thermal module and onboard Jetson hotspot flagging, as an ML / edge-AI course project.</p>
+        <p class="pd-evidence"><b>Evidence</b>In-flight alert latency; hotspot repeatability.</p></li>
+    </ol>
+    <div class="sd-reveal">
+      <h3 class="pd-sub">Readiness path</h3>
+      <div class="pd-cards" style="grid-template-columns:1fr">
+        <div class="pd-card"><h3><span class="sd-sticker">TRL 4</span>Pipeline validated</h3><p>On the campus pile (Phase 1).</p></div>
+        <div class="pd-card"><h3><span class="sd-sticker">TRL 5</span>Components validated</h3><p>On real dumpsite data (Phase 3).</p></div>
+        <div class="pd-card"><h3><span class="sd-sticker sd-sticker--crimson">TRL 6</span>System demonstrated</h3><p>The integrated system flown over an actual dumpsite and compared against official figures.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIOR ART -->
+<section class="wrap sec" aria-labelledby="prior-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">08 · What already exists</p>
+    <div class="sd-head"><h2 id="prior-h" class="sd-split"><span class="s">Prior </span><span class="o">art</span></h2></div>
+  </div>
+  <div class="pd-cards sd-reveal">
+    <div class="pd-card"><h3>Drone volume surveys</h3><p>Widespread commercially for dumpsites and stockpiles. Volume measurement itself is not new.</p></div>
+    <div class="pd-card"><h3>UAV thermal surveys of landfill fires</h3><p>Used by regulators (e.g. Washington State Department of Ecology, 2023–24) and in research on 3D/4D thermal models.</p></div>
+    <div class="pd-card"><h3>UAV methane surveys</h3><p>The UK Environment Agency trialled downward-pointing TDLAS drones in place of walkover surveys, with promising results, though walkovers still pinpointed some sources better.</p></div>
+    <div class="pd-card"><h3>Uncertainty-aware change detection</h3><p>Mature in geomorphology: the GCD toolbox, M3C2-PM, Las2DoD.</p></div>
+  </div>
+  <p class="pd-callout sd-reveal" style="margin-top:24px"><b>What’s new here</b> is the combination for this specific user: uncertainty-bounded removal figures for payment certification, relocation and fresh-waste separation through zone segmentation, and in-flight hotspot alerts, on Indian legacy dumpsites.</p>
+</section>
+
+<!-- CONSTRAINTS + RISKS -->
+<section class="wrap sec" aria-labelledby="risks-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">09 · Constraints &amp; risks</p>
+    <div class="sd-head"><h2 id="risks-h" class="sd-split"><span class="s">Ri</span><span class="o">sks</span></h2></div>
+  </div>
+  <div class="pd-cards sd-reveal" style="margin-bottom:32px">
+    <div class="pd-card"><h3>Drone Rules 2021 / Digital Sky</h3><p>Check the site’s airspace zone before any flight; register the drone; a remote pilot certificate is needed above the nano category.</p></div>
+    <div class="pd-card"><h3>Site permission</h3><p>Written approval from the municipal corporation, and coordination with contractors’ machinery.</p></div>
+    <div class="pd-card"><h3>Safety</h3><p>Methane, unstable slopes and smouldering ground: nobody walks on the mound to place markers, and ground control stays on stable edges.</p></div>
+    <div class="pd-card"><h3>Monsoon</h3><p>Flights and biomining both pause; the gap goes to processing and model training.</p></div>
+  </div>
+  <div class="pd-table-wrap sd-reveal">
+    <table class="pd-table">
+      <thead><tr><th scope="col">Risk</th><th scope="col">Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Waste density varies widely, so tonnage error dominates</td><td>Use weighbridge data if shared; report density as a range, not a single value</td></tr>
+        <tr><td>Machinery and dust create false change</td><td>Mask vehicles; fly at consistent times; flag low-quality cells</td></tr>
+        <tr><td>Thermal readings affected by sun and emissivity</td><td>Dawn/night flights; emissivity correction; ground probe confirmation</td></tr>
+        <tr><td>No access to a real site</td><td>Campus validation first; request archived survey data instead of flights</td></tr>
+        <tr><td>Contractor or authority reluctance</td><td>Position it as a neutral tool that also protects honest contractors from disputes</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="wrap sec" aria-labelledby="sources-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">10 · References</p>
+    <div class="sd-head"><h2 id="sources-h" class="sd-split"><span class="s">Sour</span><span class="o">ces</span></h2></div>
+  </div>
+  <ol class="pd-sources sd-reveal">
+    <li>DT Next — Over 52 lakh MT of legacy waste removed from Perungudi, Kodungaiyur. <a href="https://www.dtnext.in/amp/story/news/chennai/over-52-lakh-mt-of-legacy-waste-removed-from-perungudi-kodungaiyur" target="_blank" rel="noopener">dtnext.in</a></li>
+    <li>DT Next — GCC to raise ₹205 crore via green bond for Kodungaiyur bio-mining (₹963.29/MT). <a href="https://www.dtnext.in/amp/story/news/chennai/chennai-corporation-to-raise-rs-205-crore-via-green-bond-for-kodungaiyur-bio-mining-841708" target="_blank" rel="noopener">dtnext.in</a></li>
+    <li>DT Next — Anna University as Project Monitoring Committee. <a href="https://www.dtnext.in/amp/story/news/chennai/chennai-corporation-approves-55-mva-substation-for-biomining-at-kodungaiyur-landfill-821541" target="_blank" rel="noopener">dtnext.in</a></li>
+    <li>DT Next — Fresh waste inflow and monsoon pause at Kodungaiyur. <a href="https://www.dtnext.in/news/chennai/chennai-corporation-removes-2016-lakh-mt-legacy-waste-from-kodungaiyur-yard-848398" target="_blank" rel="noopener">dtnext.in</a></li>
+    <li>Business Standard — SBM-U 2.0 legacy site totals (2024). <a href="https://business-standard.com/india-news/swachh-bharat-2-0-cities-clear-38-waste-major-landfills-still-untouched-124093000278_1.html" target="_blank" rel="noopener">business-standard.com</a></li>
+    <li>Shankar IAS (PIB summary, Sept 2026) — Reclaiming the land beneath the waste. <a href="https://www.shankariasparliament.com/current-affairs/mains-analysis/reclaiming-the-land-beneath-the-waste-transforming-indias-legacy-dumpsites" target="_blank" rel="noopener">shankariasparliament.com</a></li>
+    <li>Sedano-Cibrián et al. (2023), 4D models with UAV photogrammetry for landfill thermal control, <i>Applied Sciences</i>. <a href="https://doaj.org/article/84fe7c5902814bfc8fcbbe5a996e4062" target="_blank" rel="noopener">doaj.org</a></li>
+    <li>Nazari et al. (2020), Satellite remote sensing of elevated landfill temperatures. <a href="https://doaj.org/article/b74d6247840643218a7de730323bcd09" target="_blank" rel="noopener">doaj.org</a></li>
+    <li>Washington Dept. of Ecology — UAS thermal survey of landfill fire. <a href="https://ecology.wa.gov/swm-yakima-landfill-2023" target="_blank" rel="noopener">ecology.wa.gov</a></li>
+    <li>UK Environment Agency — Drone flyover surveys for methane at landfills. <a href="https://www.gov.uk/government/publications/drone-flyover-surveys-for-identifying-methane-emission-sources-at-landfills/drone-flyover-surveys-for-identifying-methane-emission-sources-at-landfills-summary" target="_blank" rel="noopener">gov.uk</a></li>
+    <li>Pasternak et al. (2024), UAV photogrammetry for geometric changes of reclaimed landfills, <i>Sensors</i>. <a href="https://www.mdpi.com/1424-8220/24/22/7247" target="_blank" rel="noopener">mdpi.com</a></li>
+    <li>Bailey et al. (2022), Las2DoD — change detection with spatially varied uncertainty. <a href="https://www.mdpi.com/2072-4292/14/7/1537" target="_blank" rel="noopener">mdpi.com</a></li>
+    <li>James, Robson &amp; Smith (2017), 3-D uncertainty-based change detection with SfM. <a href="https://discovery.ucl.ac.uk/id/eprint/10060986" target="_blank" rel="noopener">discovery.ucl.ac.uk</a></li>
+    <li>NCSU UAS course — DoD error propagation and LoD95. <a href="https://ncsu-geoforall-lab.github.io/gis-584-uas-course/course/topics/topic_6_change_detection/lectures/change_detection.html" target="_blank" rel="noopener">ncsu-geoforall-lab.github.io</a></li>
+  </ol>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="wrap sec" aria-label="Next project">
+  <div class="sd-offset sd-reveal">
+    <a class="sd-panel sd-on-crimson pd-next" href="counter-uas.html">
+      <div>
+        <p class="sd-eyebrow">Next project</p>
+        <p class="sd-project__title">Terrain-Aware Counter-UAS System</p>
+      </div>
+      <span class="sd-btn sd-btn--cream">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-line"><hr class="sd-rule"><svg class="sd-spark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg><hr class="sd-rule" style="flex:0 0 64px"></div>
+  <div class="foot-row"><span class="c">© <span id="year">2026</span> Sai Dharshan</span><a href="#top">Back to top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V6m-6 6 6-6 6 6"/></svg></a></div>
+</footer>
+</body>
+</html>
