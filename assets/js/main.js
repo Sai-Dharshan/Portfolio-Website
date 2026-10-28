@@ -1,5 +1,5 @@
 (function () {
-  var CONTACT_EMAIL = 'hello@saidharshan.dev';
+  var CONTACT_EMAIL = 'saidharshan922@gmail.com';
 
   document.documentElement.classList.add('sd-js');
 
