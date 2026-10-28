@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#a51d2d">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sai Dharshan — Portfolio">
-<meta property="og:description" content="Machine learning meets defence technology: counter-drone sensing, robust NLP for code-mixed text, and Aeroscan Defence Systems.">
+<meta property="og:description" content="Machine learning meets defence technology: counter-drone sensing, drone surveys of legacy dumpsites, and Aeroscan Defence Systems.">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +70,7 @@
       <p class="sd-split sd-split--xl sd-split--case" aria-hidden="true"><span class="o">Hello.</span></p>
       <h1 class="sd-split sd-split--lg sd-split--case"><span class="s">I’m Sai Dharshan!</span></h1>
       <p class="where">CSE @ Sathyabama Institute of Science &amp; Technology · ML &amp; Defence Tech</p>
-      <p class="lede">I’m a Computer Science Engineering undergraduate in Chennai, working where machine learning meets defence technology. I build multi-sensor systems for detecting drones in difficult terrain, research robust NLP for Tamil-English code-mixed text, and I’m founding Aeroscan Defence Systems to take counter-drone tech to high-altitude regions.</p>
+      <p class="lede">I’m a Computer Science Engineering undergraduate in Chennai, working where machine learning meets defence technology. I build multi-sensor systems for detecting drones in difficult terrain, I’m developing a drone survey system that verifies how much legacy waste actually leaves city dumpsites, and I’m founding Aeroscan Defence Systems to take counter-drone tech to high-altitude regions.</p>
       <div class="cta-row">
         <a class="sd-btn sd-btn--primary" href="#projects">View Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
         <a class="sd-btn sd-btn--ghost" href="#contact">Get in touch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></a>
@@ -136,24 +136,27 @@
                 </ul></div>
               <div class="sd-btnrow">
                 <a class="sd-btn sd-btn--cream" href="https://github.com/Sai-Dharshan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-5 4 5 4m8-8 5 4-5 4"/></svg> GitHub</a>
+                <a class="sd-btn sd-btn--line-cream" href="projects/counter-uas.html" aria-label="View more about the High-Altitude Counter-UAS System">View more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
               </div>
             </div>
           </div>
         </article>
 
         <article class="sd-project">
-          <p class="sd-project__kicker">Final-year research · in progress</p>
-          <h3 class="sd-project__title">Robust Code-Mixed Offensive Content Detection</h3>
+          <p class="sd-project__kicker">CiiA 2026 · Reworked · In progress</p>
+          <h3 class="sd-project__title">Drone-Based Landfill Survey System</h3>
           <div><p class="sd-project__label">The problem</p>
-            <p>Offensive-content classifiers for Tamil-English code-mixed text break when people spell the same word in different transliterations.</p></div>
+            <p>Cities pay contractors per tonne to clear legacy dumpsites, but drone surveys give one volume number with no error range, and can’t tell waste that left the site from waste only moved around inside it.</p></div>
           <div><p class="sd-project__label">What I’m building</p>
             <ul class="sd-tree">
-              <li>A transliteration-noise benchmark for character-level robustness</li>
-              <li>Mitigation with data augmentation and consistency training</li>
+              <li>Removed tonnage with a 95% confidence interval, from DEM-of-difference change detection and Monte Carlo density modelling</li>
+              <li>Material-zone segmentation that separates real removal from relocation and fresh dumping</li>
+              <li>Thermal hotspot tracking with in-flight alerts from an onboard Jetson</li>
             </ul></div>
-          <div class="sd-tags"><span class="sd-tag">NLP</span><span class="sd-tag">Code-mixed text</span><span class="sd-tag">Robustness</span><span class="sd-tag">Python</span></div>
+          <div class="sd-tags"><span class="sd-tag">Drones</span><span class="sd-tag">Photogrammetry</span><span class="sd-tag">Computer vision</span><span class="sd-tag">Thermal imaging</span><span class="sd-tag">Python</span></div>
           <div class="sd-btnrow">
             <a class="sd-btn sd-btn--cream" href="https://github.com/Sai-Dharshan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-5 4 5 4m8-8 5 4-5 4"/></svg> GitHub</a>
+            <a class="sd-btn sd-btn--line-cream" href="projects/landfill-survey.html" aria-label="View more about the Drone-Based Landfill Survey System">View more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
           </div>
         </article>
 

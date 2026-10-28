@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>High-Altitude Counter-UAS System — Sai Dharshan</title>
+<meta name="description" content="Anti-drone detection for high-altitude terrain that fuses RF, radar, EO/IR and acoustic sensors, with weather-based sensor weighting. Smart India Hackathon SIH26050 (DRDO).">
+<meta name="author" content="Sai Dharshan">
+<meta name="theme-color" content="#a51d2d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="High-Altitude Counter-UAS System — Sai Dharshan">
+<meta property="og:description" content="Multi-sensor drone detection for mountain terrain where line-of-sight and visibility fail.">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Unbounded:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/project.css">
+<script src="../assets/js/main.js"></script>
+</head>
+<body class="sd-root">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+  <div class="topbar">
+    <svg class="sd-spark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg>
+    <a class="brand" href="../index.html" aria-label="Sai Dharshan, home"><span class="sd-sticker sd-sticker--crimson">SD</span><span class="txt">Sai Dharshan</span></a>
+    <span class="grow" aria-hidden="true"></span>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Sections">
+      <a href="../index.html#projects">Projects</a><a href="../index.html#startup">Startup</a><a href="../index.html#events">Events</a><a href="../index.html#education">Education</a><a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="wrap" id="top">
+  <a class="pd-back" href="../index.html#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg> All projects</a>
+  <div class="sd-offset sd-reveal">
+    <div class="sd-panel sd-on-crimson pd-hero">
+      <div class="pd-hero__main">
+        <p class="sd-eyebrow">Smart India Hackathon · SIH26050 · DRDO</p>
+        <h1 class="pd-title">High-Altitude Counter-UAS System</h1>
+        <p class="pd-pitch">Anti-drone detection for mountain terrain, where <strong>ridges block line-of-sight and fog and snow blind cameras</strong>. It fuses RF, radar, EO/IR and acoustic sensors, and shifts trust between them as the weather changes.</p>
+        <div class="sd-tags"><span class="sd-tag">Sensor fusion</span><span class="sd-tag">RF</span><span class="sd-tag">Radar</span><span class="sd-tag">EO/IR</span><span class="sd-tag">Acoustic</span><span class="sd-tag">Hardware</span></div>
+        <div class="sd-btnrow">
+          <a class="sd-btn sd-btn--cream" href="https://github.com/Sai-Dharshan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-5 4 5 4m8-8 5 4-5 4"/></svg> GitHub</a>
+        </div>
+      </div>
+      <dl class="pd-facts">
+        <div><dt>Event</dt><dd>Smart India Hackathon</dd></div>
+        <div><dt>Problem statement</dt><dd>SIH26050 · DRDO</dd></div>
+        <div><dt>Team</dt><dd>GoodFellas</dd></div>
+        <div><dt>Built for</dt><dd>High-altitude terrain</dd></div>
+        <div><dt>Next</dt><dd>Aeroscan’s first product</dd></div>
+      </dl>
+    </div>
+  </div>
+  <!-- Placeholder image: swap the src for the real file and update the alt text. -->
+  <figure class="pd-figure pd-hero-fig sd-reveal">
+    <img src="../assets/img/projects/counter-uas/hero.svg" alt="Placeholder: counter-UAS system overview" width="1600" height="900">
+  </figure>
+</header>
+
+<!-- PROBLEM -->
+<section class="wrap sec" aria-labelledby="problem-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">01 · The problem</p>
+    <div class="sd-head"><h2 id="problem-h" class="sd-split"><span class="s">Prob</span><span class="o">lem</span></h2></div>
+  </div>
+  <div class="pd-prose sd-reveal" style="margin-bottom:28px">
+    <p>Drones are hard to detect in high-altitude terrain. Counter-drone setups that assume a clear view of the sky run into two problems in the mountains.</p>
+  </div>
+  <div class="pd-cards sd-reveal">
+    <div class="pd-card"><h3><span class="sd-sticker">01</span>Line-of-sight blockage</h3><p>Ridges and valleys hide a drone from sensors that need a direct view of it.</p></div>
+    <div class="pd-card"><h3><span class="sd-sticker">02</span>Fog and snow</h3><p>Low visibility blinds cameras, the sensors best at confirming what a target is.</p></div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="wrap sec" aria-labelledby="approach-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">02 · What I built</p>
+    <div class="sd-head"><h2 id="approach-h" class="sd-split"><span class="s">Appr</span><span class="o">oach</span></h2></div>
+  </div>
+  <article class="pd-module sd-reveal">
+    <div>
+      <h3><span class="sd-sticker sd-sticker--crimson">01</span>Multi-sensor fusion</h3>
+      <p>No single sensor works in every condition, so the system combines four: RF, radar, EO/IR and acoustic. Each covers a gap the others leave, and their detections are fused into one decision.</p>
+      <h3><span class="sd-sticker sd-sticker--crimson">02</span>Weather-based sensor weighting</h3>
+      <p>Trust shifts between sensors as visibility changes: cameras count for more in clear conditions, and as fog or snow sets in the decision leans on the sensors that don’t need to see the target.</p>
+      <h3><span class="sd-sticker sd-sticker--crimson">03</span>Designed for mountain terrain</h3>
+      <p>The design targets line-of-sight blockage and fog/snow, the two conditions that break conventional counter-drone setups at altitude.</p>
+    </div>
+    <figure class="pd-figure">
+      <img src="../assets/img/projects/counter-uas/fusion.svg" alt="Placeholder: sensor-fusion architecture diagram" width="1600" height="900" loading="lazy">
+      <figcaption>Sensor-fusion architecture.</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- SENSORS -->
+<section class="wrap sec" aria-labelledby="sensors-h">
+  <div class="sd-offset sd-reveal">
+    <div class="sd-panel sd-on-crimson">
+      <div class="panel-head">
+        <div>
+          <p class="sd-eyebrow">03 · The sensor stack</p>
+          <h2 id="sensors-h" class="sd-split sd-split--cream"><span class="s">Sen</span><span class="o">sors</span></h2>
+        </div>
+        <p class="note">Each sensor’s strength covers another’s blind spot.</p>
+      </div>
+      <div class="pd-cards">
+        <article class="sd-project">
+          <p class="sd-project__kicker">Radio frequency</p>
+          <h3 class="sd-project__title">RF</h3>
+          <p>Picks up the radio link between a drone and its controller. It doesn’t need to see the drone, so fog and snow don’t stop it.</p>
+        </article>
+        <article class="sd-project">
+          <p class="sd-project__kicker">Active sensing</p>
+          <h3 class="sd-project__title">Radar</h3>
+          <p>Tracks the range and motion of targets, and keeps working through fog and snow.</p>
+        </article>
+        <article class="sd-project">
+          <p class="sd-project__kicker">Electro-optical / infrared</p>
+          <h3 class="sd-project__title">EO/IR</h3>
+          <p>Daylight and thermal cameras that confirm what a target is. Strongest in clear conditions, which is why its weight drops as visibility falls.</p>
+        </article>
+        <article class="sd-project">
+          <p class="sd-project__kicker">Microphone arrays</p>
+          <h3 class="sd-project__title">Acoustic</h3>
+          <p>Listens for rotor noise and its direction, a cue that doesn’t depend on visibility.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD -->
+<section class="wrap sec" aria-labelledby="build-h">
+  <div class="sec-head sd-reveal">
+    <p class="sd-eyebrow">04 · Hardware &amp; context</p>
+    <div class="sd-head"><h2 id="build-h" class="sd-split"><span class="s">Bu</span><span class="o">ild</span></h2></div>
+  </div>
+  <article class="pd-module pd-module--flip sd-reveal">
+    <div>
+      <p>Built for the Smart India Hackathon problem statement <b>SIH26050</b>, set by DRDO, with team GoodFellas.</p>
+      <p>The work continues as the first product of <a href="../index.html#startup" style="color:var(--crimson)">Aeroscan Defence Systems</a>, my defence-tech startup in incubation at Sathyabama Institute of Science &amp; Technology.</p>
+      <!-- Add more detail here when ready: hardware used, fusion method, test results. -->
+    </div>
+    <figure class="pd-figure">
+      <img src="../assets/img/projects/counter-uas/prototype.svg" alt="Placeholder: prototype hardware and test setup" width="1600" height="900" loading="lazy">
+      <figcaption>Prototype hardware and test setup.</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="wrap sec" aria-label="Next project">
+  <div class="sd-offset sd-reveal">
+    <a class="sd-panel sd-on-crimson pd-next" href="landfill-survey.html">
+      <div>
+        <p class="sd-eyebrow">Next project</p>
+        <p class="sd-project__title">Drone-Based Landfill Survey System</p>
+      </div>
+      <span class="sd-btn sd-btn--cream">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-line"><hr class="sd-rule"><svg class="sd-spark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0C25.6 15 29.6 21.4 48 24C29.6 26.6 25.6 33 24 48C22.4 33 18.4 26.6 0 24C18.4 21.4 22.4 15 24 0Z"/></svg><hr class="sd-rule" style="flex:0 0 64px"></div>
+  <div class="foot-row"><span class="c">© <span id="year">2026</span> Sai Dharshan</span><a href="#top">Back to top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V6m-6 6 6-6 6 6"/></svg></a></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Placeholder: Prototype hardware / test setup">
+  <rect width="1600" height="900" fill="#f3e3c8"/>
+  <rect x="24" y="24" width="1552" height="852" rx="28" fill="none" stroke="#b0463f" stroke-width="4" stroke-dasharray="18 14"/>
+  <g transform="translate(800 360)" fill="none" stroke="#a51d2d" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-130" y="-95" width="260" height="190" rx="26"/>
+    <circle cx="55" cy="-35" r="24"/>
+    <path d="M-130 60 -40 -20 30 45 70 15 130 65"/>
+  </g>
+  <text x="800" y="560" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="800" font-size="30" letter-spacing="5" fill="#b84d08">BUILD</text>
+  <text x="800" y="620" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="46" fill="#a51d2d">Prototype hardware / test setup</text>
+  <text x="800" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#6d5550">Placeholder image · replace with the real one</text>
+</svg>

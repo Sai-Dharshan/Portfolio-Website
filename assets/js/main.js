@@ -28,9 +28,9 @@
       if (ev.key === 'Escape' && nav.classList.contains('is-open')) { setOpen(false); btn.focus(); }
     });
 
-    // Contact form: opens the visitor's email app with the message filled in
+    // Contact form: opens the visitor's email app with the message filled in (home page only)
     var form = document.getElementById('contact-form');
-    form.addEventListener('submit', function (ev) {
+    if (form) form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       var n = form.elements.name.value.trim(), e = form.elements.email.value.trim(), m = form.elements.message.value.trim();
       var body = m + '\n\n— ' + n + (e ? ' (' + e + ')' : '');
