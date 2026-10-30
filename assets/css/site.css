@@ -51,6 +51,7 @@ a { color: inherit; }
 .intro .where { font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 1.55; color: var(--crimson); margin: 22px 0 16px; letter-spacing: .01em; }
 .intro .sd-split--lg { margin-top: 6px; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.cta-row.social-row { margin-top: 14px; }
 
 /* contact strip */
 .strip-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 30px; }
