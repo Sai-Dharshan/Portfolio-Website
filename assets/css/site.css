@@ -31,10 +31,8 @@ a { color: inherit; }
 .pstage { position: relative; aspect-ratio: 1 / 1.05; margin: 112px 18px 34px 0; }
 .pframe { position: absolute; inset: 18px 18px -18px -18px; border: var(--hairline) solid var(--line); border-radius: var(--radius-lg); }
 .pblock { position: absolute; inset: 0; background: var(--crimson); border-radius: var(--radius-lg); }
-.photo { position: absolute; left: 4%; right: 4%; bottom: 0; top: -24%; }
-.photo svg { position: absolute; left: 0; bottom: 0; width: 100%; height: auto; display: block; }
-.photo .sil { fill: var(--crimson-deep); }
-.photo .rim { fill: none; stroke: var(--cream); stroke-width: 2; stroke-dasharray: 6 7; }
+.photo { position: absolute; left: 0; right: 0; bottom: 0; top: -24%; }
+.photo img { position: absolute; left: 0; bottom: 0; width: 100%; height: auto; display: block; border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
 .pstage .sp1 { position: absolute; top: 9%; left: 7%; width: 44px; height: 44px; }
 .pstage .sp2 { position: absolute; bottom: -24px; right: -26px; width: 56px; height: 56px; }
 .pstage .st { position: absolute; }
