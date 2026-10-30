@@ -33,8 +33,9 @@ The site is static, so it can be served from GitHub Pages: in the repository's
 ## Updating content
 
 - **Email:** change the `mailto:` links in `index.html` and `CONTACT_EMAIL` in `assets/js/main.js`.
-- **Portrait:** replace the silhouette inside `.photo` with a cut-out image, e.g.
-  `<img src="assets/img/portrait.png" alt="Sai Dharshan" style="width:100%;height:100%;object-fit:contain;object-position:bottom">`.
+- **Portrait:** `assets/img/portrait.webp` is a transparent cut-out, bottom-aligned on the crimson
+  block. To swap it, export a new cut-out at the same aspect (about 6:5) and update the `<img>`'s
+  `width`/`height` in `index.html`.
 - **Résumé:** add `assets/resume.pdf` and link it from the hero buttons.
 - **Project images:** the detail pages use placeholder SVGs in `assets/img/projects/landfill/`
   and `assets/img/projects/counter-uas/`. Add the real image next to them (e.g. `hero.jpg`),
