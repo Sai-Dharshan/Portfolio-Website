@@ -1,0 +1,6 @@
+numpy
+matplotlib
+scipy
+# optional: real GeoTIFF input (--before/--after) and lossless PNG compression
+rasterio
+pyoxipng
